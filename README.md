@@ -17,4 +17,4 @@ devtools::install_github("MotifFunc")
 ```
 ## One Minute Pitch Slide
 
-![Slide](HO_M_A1.pdf)
+![Slide](HO_M_A1.png)
