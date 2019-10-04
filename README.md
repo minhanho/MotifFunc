@@ -29,6 +29,10 @@ match_names <- classifySeqMotifs("AGCGTAGGCGT")
 getFunctionWC(match_names)
 ```
 
+## Example output
+
+![WC](WCoutput.png)
+
 ## One Minute Pitch Slide
 
 ![Slide](HO_M_A1.png)
