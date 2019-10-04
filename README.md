@@ -18,7 +18,7 @@ You can install the MotifFunc from github with:
 devtools::install_github("minhanho/MotifFunc")
 ```
 
-## Example sequence of functions
+## Example Sequence of Functions
 ```
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 match_names <- classifyPcmMotifs(PWMfile)
@@ -31,7 +31,7 @@ match_names <- classifySeqMotifs("AGCGTAGGCGT")
 functionFreq <- getFunctionWC(match_names)
 ```
 
-## Example output
+## Example Output
 
 ![WC](WCoutput.png)
 
