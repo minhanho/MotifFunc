@@ -9,10 +9,10 @@
 #'
 #' @examples
 #' match_names <- classifySeqMotifs("AGCGTAGGCGT")
-#' getFunctionWC(match_names)
+#' functionFreq <- getFunctionWC(match_names)
 #'
 #' match_names <- classifyPcmMotifs("/Users/minhanho/Documents/MotifFunc/new0007.txt")
-#' getFunctionWC(match_names)
+#' functionFreq <- getFunctionWC(match_names)
 #'
 #' @import MotifDb
 #' @import biomartr

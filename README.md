@@ -8,6 +8,8 @@
 
 MotifFunc contains functions that handle genomic data to classify motifs, determine functionality, and group broad functionalities for visualization.
 
+__Note:__ The current version only supports visualization for motif matches within Homo sapiens. Visualization looks best when previewed in RStudio.
+
 ## Installation
 
 You can install the MotifFunc from github with:
@@ -20,13 +22,13 @@ devtools::install_github("minhanho/MotifFunc")
 ```
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 match_names <- classifyPcmMotifs(PWMfile)
-getFunctionWC(match_names)
+functionFreq <- getFunctionWC(match_names)
 ```
 Or
 
 ```
 match_names <- classifySeqMotifs("AGCGTAGGCGT")
-getFunctionWC(match_names)
+functionFreq <- getFunctionWC(match_names)
 ```
 
 ## Example output
