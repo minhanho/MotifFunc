@@ -6,7 +6,7 @@
 
 ## Description
 
-MotifFunc contains functions that handle genomic data to classify motifs, determine functionality, and group broad functionalities for visualization.
+MotifFunc contains functions that handle genomic data to classify motifs, determine functionality, and group broad functionalities for word cloud visualization. As with the word cloud format, functions with the same frequency are displayed in the same colour and size.
 
 __Note:__ The current version only supports visualization for motif matches within Homo sapiens. Visualization looks best when previewed in RStudio.
 
