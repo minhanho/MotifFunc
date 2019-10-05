@@ -35,6 +35,17 @@ functionFreq <- getFunctionWC(match_names)
 
 ![WC](WCoutput.png)
 
+## Retreiving an Input Data Set
+When using `classifySeqMotifs()`, the input is a string composed of your choice of nucleotides (i.e. "A", "C", "G", "T")
+
+But when using `classifyPcmMotifs()`, you must specify a path on your computer to a transfac or txt file containing frequency matrix data, to do this:
+* Navigate to http://jaspar.genereg.net/
+* Select a profile
+* Download the "Frequency Matrix" in TRANSFAC format
+
+![Ex1](Get-Data-Ex1.png)
+![Ex2](Get-Data-Ex1.png)
+
 ## One Minute Pitch Slide
 
 ![Slide](HO_M_A1.png)
