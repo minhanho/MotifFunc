@@ -12,7 +12,8 @@
 #' matchNames <- classifyPcmMotifs(transfacFilePath)
 #'
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-#' matchNames <- classifyPcmMotifs(PWMfile)
+#' jaspar.scores <- MotifFunc::jaspar.scores
+#' matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 #'
 #' @import MotIV
 #' @import MotifDb

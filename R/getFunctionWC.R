@@ -8,11 +8,13 @@
 #' }
 #'
 #' @examples
-#' matchNames <- classifySeqMotifs("AGCGTAGGCGT")
-#' functionFreq <- getFunctionWC(matchNames)
+#' jaspar.scores <- MotifFunc::jaspar.scores
+#' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+#' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
-#' matchNames <- classifyPcmMotifs("/Users/minhanho/Documents/MotifFunc/new0007.txt")
-#' functionFreq <- getFunctionWC(matchNames)
+#' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
+#' matchNames <- classifyPcmMotifs(transfacFilePath)
+#' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
 #' @import MotifDb
 #' @import biomartr
@@ -21,7 +23,7 @@
 #' @import RColorBrewer
 #'
 getFunctionWC <- function(matchNames) {
-  library(MotifDb)
+  #library(MotifDb)
 
   functionCollection <- c()
   for (x in 1:nrow(matchNames)){

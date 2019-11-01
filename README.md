@@ -21,14 +21,16 @@ devtools::install_github("minhanho/MotifFunc")
 ## Example Sequence of Functions
 ```
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-matchNames <- classifyPcmMotifs(PWMfile)
-functionFreq <- getFunctionWC(matchNames)
+jaspar.scores <- MotifFunc::jaspar.scores
+matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
+functionFreq <- MotifFunc::(matchNames)
 ```
 Or
 
 ```
-matchNames <- classifySeqMotifs("AGCGTAGGCGT")
-functionFreq <- getFunctionWC(matchNames)
+jaspar.scores <- MotifFunc::jaspar.scores
+matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+functionFreq <- MotifFunc::getFunctionWC(matchNames)
 ```
 
 ## Example Output

@@ -8,7 +8,8 @@
 #' }
 #'
 #' @examples
-#' matchNames <- classifySeqMotifs("AGCGTAGGCGT")
+#' jaspar.scores <- MotifFunc::jaspar.scores
+#' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #'
 #' @import MotIV
 #' @import universalmotif
