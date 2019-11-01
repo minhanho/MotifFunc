@@ -33,7 +33,7 @@ functionFreq <- getFunctionWC(matchNames)
 
 ## Example Output
 
-![WC](/Users/minhanho/Documents/MotifFunc/inst/extdata/WCoutput.png)
+![WC](/inst/extdata/WCoutput.png)
 
 ## Retreiving an Input Data Set
 When using `classifySeqMotifs()`, the input is a string composed of your choice of nucleotides (i.e. "A", "C", "G", "T")
@@ -43,9 +43,9 @@ But when using `classifyPcmMotifs()`, you must specify a path on your computer t
 * Select a profile
 * Download the "Frequency Matrix" in TRANSFAC format
 
-![Ex1](/Users/minhanho/Documents/MotifFunc/inst/extdata/Get-Data-Ex1.png)
-![Ex2](/Users/minhanho/Documents/MotifFunc/inst/extdata/Get-Data-Ex2.png)
+![Ex1](/inst/extdata/Get-Data-Ex1.png)
+![Ex2](/inst/extdata/Get-Data-Ex2.png)
 
 ## One Minute Pitch Slide
 
-![Slide](/Users/minhanho/Documents/MotifFunc/inst/extdata/HO_M_A1.png)
+![Slide](/inst/extdata/HO_M_A1.png)
