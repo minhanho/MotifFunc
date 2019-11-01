@@ -44,7 +44,7 @@ But when using `classifyPcmMotifs()`, you must specify a path on your computer t
 * Download the "Frequency Matrix" in TRANSFAC format
 
 ![Ex1](Get-Data-Ex1.png)
-![Ex2](Get-Data-Ex1.png)
+![Ex2](Get-Data-Ex2.png)
 
 ## One Minute Pitch Slide
 

@@ -4,7 +4,7 @@
 #'
 #' @param consensusSeq A string indicating a desired consensus sequence (i.e. Contains only "A", "T", "C", "G")
 #'
-#' @return Returns match_names - A list indicating
+#' @return Returns match_names - A value of class list indicating motif match names
 #' }
 #'
 #' @examples
