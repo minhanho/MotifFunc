@@ -20,3 +20,20 @@ Imports:
     RColorBrewer,
     wordcloud
 biocViews:
+    Annotation,
+    Software,
+    MotifAnnotation,
+    ChIPSeq,
+    ChIPchip,
+    GenomicSequence,
+    Microarray, 
+    DataImport,
+    GeneRegulation,
+    MotifDiscovery,
+    Alignment,
+    DataImport,
+    DataRepresentation,
+    Genetics,
+    Infrastructure,
+    SequenceMatching,
+    Sequencing
