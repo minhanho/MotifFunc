@@ -2,17 +2,17 @@
 #'
 #' A function that takes motif "names" in MotifDb format, retrieves corresponding GO functions and produces a word cloud visualization based on function frequency within all specified motifs.
 #'
-#' @param match_names A character vector indicating Motif "names" (based on MotifDb records)
+#' @param matchNames A character vector indicating Motif "names" (based on MotifDb records)
 #'
 #' @return Returns functionFreq - A table/list indicating frequency of found functionalities
 #' }
 #'
 #' @examples
-#' match_names <- classifySeqMotifs("AGCGTAGGCGT")
-#' functionFreq <- getFunctionWC(match_names)
+#' matchNames <- classifySeqMotifs("AGCGTAGGCGT")
+#' functionFreq <- getFunctionWC(matchNames)
 #'
-#' match_names <- classifyPcmMotifs("/Users/minhanho/Documents/MotifFunc/new0007.txt")
-#' functionFreq <- getFunctionWC(match_names)
+#' matchNames <- classifyPcmMotifs("/Users/minhanho/Documents/MotifFunc/new0007.txt")
+#' functionFreq <- getFunctionWC(matchNames)
 #'
 #' @import MotifDb
 #' @import biomartr
@@ -20,21 +20,20 @@
 #' @import tm
 #' @import RColorBrewer
 #'
-#' @export
-getFunctionWC <- function(match_names) {
+getFunctionWC <- function(matchNames) {
   library(MotifDb)
 
   functionCollection <- c()
-  for (x in 1:nrow(match_names)){
-    db_info <- noquote (t (as.data.frame (values(MotifDb::MotifDb [match_names[x,]]))))
-    match_organism <- db_info[9]
+  for (x in 1:nrow(matchNames)){
+    dbInfo <- noquote (t (as.data.frame (values(MotifDb::MotifDb [matchNames[x,]]))))
+    matchOrganism <- dbInfo[9]
 
     #Currently only working for Homo sapiens, will add on this in the next submission
-    if (match_organism == "Hsapiens"){
-      organism_full <- getFullOrganism(match_organism)
-      match_gene <- db_info[4]
-      match_gene <- toupper(match_gene)
-      GO_tbl <- biomartr::getGO(organism = organism_full, genes = match_gene, filters = "uniprot_gn_symbol")
+    if (matchOrganism == "Hsapiens"){
+      organism_full <- getFullOrganism(matchOrganism)
+      matchGene <- dbInfo[4]
+      matchGene <- toupper(matchGene)
+      GO_tbl <- biomartr::getGO(organism = organism_full, genes = matchGene, filters = "uniprot_gn_symbol")
       functionCollection <- append(functionCollection, unlist(GO_tbl[2], use.names = FALSE))
     }
   }

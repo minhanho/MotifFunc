@@ -10,20 +10,19 @@
 #' @examples
 #' getFullOrganism("Hsapiens")
 #'
-#' @export
 
 getFullOrganism <- function(MotifDbOrganism) {
   data("organismFullNames")
   for (x in 1:length(organismFullNames)){
     matcher <- strsplit(organismFullNames[x], "=")
-    matcher_terms <- unlist(matcher)
-    if (matcher_terms[1] == MotifDbOrganism){
-      if (length(matcher_terms) > 2){
-        picked <- pickOrganism(matcher_terms[2:length(matcher_terms)])
+    matcherTerms <- unlist(matcher)
+    if (matcherTerms[1] == MotifDbOrganism){
+      if (length(matcherTerms) > 2){
+        picked <- pickOrganism(matcherTerms[2:length(matcherTerms)])
         fullName <- picked
       }
       else{
-        fullName <- matcher_terms[2]
+        fullName <- matcherTerms[2]
       }
     }
   }

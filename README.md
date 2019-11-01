@@ -21,19 +21,19 @@ devtools::install_github("minhanho/MotifFunc")
 ## Example Sequence of Functions
 ```
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-match_names <- classifyPcmMotifs(PWMfile)
-functionFreq <- getFunctionWC(match_names)
+matchNames <- classifyPcmMotifs(PWMfile)
+functionFreq <- getFunctionWC(matchNames)
 ```
 Or
 
 ```
-match_names <- classifySeqMotifs("AGCGTAGGCGT")
-functionFreq <- getFunctionWC(match_names)
+matchNames <- classifySeqMotifs("AGCGTAGGCGT")
+functionFreq <- getFunctionWC(matchNames)
 ```
 
 ## Example Output
 
-![WC](WCoutput.png)
+![WC](/Users/minhanho/Documents/MotifFunc/inst/extdata/WCoutput.png)
 
 ## Retreiving an Input Data Set
 When using `classifySeqMotifs()`, the input is a string composed of your choice of nucleotides (i.e. "A", "C", "G", "T")
@@ -43,9 +43,9 @@ But when using `classifyPcmMotifs()`, you must specify a path on your computer t
 * Select a profile
 * Download the "Frequency Matrix" in TRANSFAC format
 
-![Ex1](Get-Data-Ex1.png)
-![Ex2](Get-Data-Ex2.png)
+![Ex1](/Users/minhanho/Documents/MotifFunc/inst/extdata/Get-Data-Ex1.png)
+![Ex2](/Users/minhanho/Documents/MotifFunc/inst/extdata/Get-Data-Ex2.png)
 
 ## One Minute Pitch Slide
 
-![Slide](HO_M_A1.png)
+![Slide](/Users/minhanho/Documents/MotifFunc/inst/extdata/HO_M_A1.png)

@@ -11,7 +11,6 @@
 #' data("matches")
 #' MotIV.toTable("Hsapiens")
 #'
-#' @export
 
 #All of this code is taken directly from https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R
 MotIV.toTable = function (match) {

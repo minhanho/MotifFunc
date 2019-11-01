@@ -4,15 +4,15 @@
 #'
 #' @param transfacFilePath A string indicating the path to the TRANSFAC file
 #'
-#' @return Returns match_names - A value of class list indicating motif match names
+#' @return Returns matchNames - A value of class list indicating motif match names
 #' }
 #'
 #' @examples
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-#' match_names <- classifyPcmMotifs(transfacFilePath)
+#' matchNames <- classifyPcmMotifs(transfacFilePath)
 #'
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-#' match_names <- classifyPcmMotifs(PWMfile)
+#' matchNames <- classifyPcmMotifs(PWMfile)
 #'
 #' @import MotIV
 #' @import MotifDb
@@ -22,9 +22,9 @@ classifyPcmMotifs <- function(transfacFilePath) {
   correctJasparTransfac(transfacFilePath, "newFile.txt")
   queryMotif <- MotIV::readPWMfile("newFile.txt")
   matches <- MotIV::motifMatch(queryMotif, as.list(MotifDb::MotifDb), top=20)
-  matches_table <- MotIV.toTable(matches)
-  match_names <- matches_table["name"]
-  return(match_names)
+  matchesTable <- MotIV.toTable(matches)
+  matchNames <- matchesTable["name"]
+  return(matchNames)
 }
 
 #[END]

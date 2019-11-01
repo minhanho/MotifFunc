@@ -11,7 +11,6 @@
 #' organismVec <- c("Mus musculus", "Saccharomyces cerevisiae", "Homo sapiens")
 #' pickOrganism(organismVec)
 #'
-#' @export
 
 pickOrganism <- function(organismVec){
   outputString <- "Multi-species match. Pick organism: \n"

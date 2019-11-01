@@ -9,19 +9,18 @@
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 #' correctJasparTransfac(PWMfile, "new0007.txt")
 #'
-#'@export
 correctJasparTransfac <- function(PWMfile, newFilePath) {
   A <- readLines(con <- file(PWMfile))
   close(con)
   lenA <- length(A)
-  new_ex <- list()
+  newEx <- list()
   counter <- 1
   ignoreLines <- c("AC", "ID", "BF", "PO")
 
   for (x in 1:lenA){
     if (!((substr(A[x], start=1, stop=2)) %in% ignoreLines)) {
       if (((substr(A[x], start=1, stop=2)) != "XX") | ((x-1 > 0) && (!((substr(A[x-1], start=1, stop=2)) %in% ignoreLines)))) {
-        new_ex[counter] <- A[x]
+        newEx[counter] <- A[x]
         counter <- counter+1
       }
     }
@@ -30,7 +29,7 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
   if (file.exists(newFilePath))
     file.remove(newFilePath)
 
-  lapply(new_ex, write, newFilePath, append=TRUE)
+  lapply(newEx, write, newFilePath, append=TRUE)
 }
 
 #[END]
