@@ -8,12 +8,13 @@
 #' }
 #'
 #' @examples
-#' jaspar.scores <- MotifFunc::jaspar.scores
+#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
+#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-#' matchNames <- classifyPcmMotifs(transfacFilePath)
+#' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
 #' @import MotifDb
@@ -21,6 +22,7 @@
 #' @import wordcloud
 #' @import tm
 #' @import RColorBrewer
+#' @import getFullOrganism
 #'
 getFunctionWC <- function(matchNames) {
   #library(MotifDb)

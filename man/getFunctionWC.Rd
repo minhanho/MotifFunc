@@ -4,19 +4,21 @@
 \alias{getFunctionWC}
 \title{Creates word cloud visualization of GO functionality based on Motif match names from MotifDb}
 \usage{
-getFunctionWC(match_names)
+getFunctionWC(matchNames)
 }
 \arguments{
-\item{match_names}{A character vector indicating Motif "names" (based on MotifDb records)}
+\item{matchNames}{A character vector indicating Motif "names" (based on MotifDb records)}
 }
 \description{
 A function that takes motif "names" in MotifDb format, retrieves corresponding GO functions and produces a word cloud visualization based on function frequency within all specified motifs.
 }
 \examples{
-match_names <- classifySeqMotifs("AGCGTAGGCGT")
-functionFreq <- getFunctionWC(match_names)
+jaspar.scores <- MotifFunc::jaspar.scores
+matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+functionFreq <- MotifFunc::getFunctionWC(matchNames)
 
-match_names <- classifyPcmMotifs("/Users/minhanho/Documents/MotifFunc/new0007.txt")
-functionFreq <- getFunctionWC(match_names)
+transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
+matchNames <- classifyPcmMotifs(transfacFilePath)
+functionFreq <- MotifFunc::getFunctionWC(matchNames)
 
 }

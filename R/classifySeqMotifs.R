@@ -8,7 +8,7 @@
 #' }
 #'
 #' @examples
-#' jaspar.scores <- MotifFunc::jaspar.scores
+#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #'
 #' @import MotIV

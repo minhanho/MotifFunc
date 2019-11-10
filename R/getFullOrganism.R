@@ -10,6 +10,8 @@
 #' @examples
 #' getFullOrganism("Hsapiens")
 #'
+#' @import pickOrganism
+#'
 
 getFullOrganism <- function(MotifDbOrganism) {
   data("organismFullNames")

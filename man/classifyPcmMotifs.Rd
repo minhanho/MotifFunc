@@ -14,9 +14,10 @@ A function that finds matches for given motif PWM to motifs within the MotifDb d
 }
 \examples{
 transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-match_names <- classifyPcmMotifs(transfacFilePath)
+matchNames <- classifyPcmMotifs(transfacFilePath)
 
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-match_names <- classifyPcmMotifs(PWMfile)
+jaspar.scores <- MotifFunc::jaspar.scores
+matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 
 }
