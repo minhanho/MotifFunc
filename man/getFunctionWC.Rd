@@ -9,16 +9,20 @@ getFunctionWC(matchNames)
 \arguments{
 \item{matchNames}{A character vector indicating Motif "names" (based on MotifDb records)}
 }
+\value{
+Returns functionFreq - A table/list indicating frequency of found functionalities
+}
 \description{
 A function that takes motif "names" in MotifDb format, retrieves corresponding GO functions and produces a word cloud visualization based on function frequency within all specified motifs.
 }
 \examples{
-jaspar.scores <- MotifFunc::jaspar.scores
+jaspar.scores <- MotifFunc:::jaspar.scores
 matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 functionFreq <- MotifFunc::getFunctionWC(matchNames)
 
+jaspar.scores <- MotifFunc:::jaspar.scores
 transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-matchNames <- classifyPcmMotifs(transfacFilePath)
+matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 functionFreq <- MotifFunc::getFunctionWC(matchNames)
 
 }

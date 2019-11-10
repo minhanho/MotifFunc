@@ -5,12 +5,11 @@
 #' @param MotifDbOrganism A string indicating organism/species names (based on MotifDb records)
 #'
 #' @return Returns fullName - A string indicating full species name
-#' }
+#'
 #'
 #' @examples
 #' getFullOrganism("Hsapiens")
 #'
-#' @import pickOrganism
 #'
 
 getFullOrganism <- function(MotifDbOrganism) {

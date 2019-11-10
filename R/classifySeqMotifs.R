@@ -5,7 +5,7 @@
 #' @param consensusSeq A string indicating a desired consensus sequence (i.e. Contains only "A", "T", "C", "G")
 #'
 #' @return Returns matchNames - A value of class list indicating motif match names
-#' }
+#'
 #'
 #' @examples
 #' jaspar.scores <- MotifFunc:::jaspar.scores

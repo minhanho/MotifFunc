@@ -9,6 +9,9 @@ pickOrganism(organismVec)
 \arguments{
 \item{organismVec}{An character vector containing species names}
 }
+\value{
+Returns a string indicating chosen organism
+}
 \description{
 A function that displays organism options to user and returns chosen organism
 }

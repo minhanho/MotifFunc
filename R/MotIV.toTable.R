@@ -5,7 +5,7 @@
 #' @param match An S4 typically outputted by MotIV::motifMatch()
 #'
 #' @return Returns df - A list indicating motif information as outlined in MotDb
-#' }
+#'
 #'
 #' @examples
 #' data("matches")

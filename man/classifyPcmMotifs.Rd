@@ -9,15 +9,19 @@ classifyPcmMotifs(transfacFilePath)
 \arguments{
 \item{transfacFilePath}{A string indicating the path to the TRANSFAC file}
 }
+\value{
+Returns matchNames - A value of class list indicating motif match names
+}
 \description{
 A function that finds matches for given motif PWM to motifs within the MotifDb database
 }
 \examples{
 transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-matchNames <- classifyPcmMotifs(transfacFilePath)
+jaspar.scores <- MotifFunc:::jaspar.scores
+matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-jaspar.scores <- MotifFunc::jaspar.scores
+jaspar.scores <- MotifFunc:::jaspar.scores
 matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 
 }

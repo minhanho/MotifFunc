@@ -5,7 +5,7 @@
 #' @param matchNames A character vector indicating Motif "names" (based on MotifDb records)
 #'
 #' @return Returns functionFreq - A table/list indicating frequency of found functionalities
-#' }
+#'
 #'
 #' @examples
 #' jaspar.scores <- MotifFunc:::jaspar.scores
@@ -22,7 +22,6 @@
 #' @import wordcloud
 #' @import tm
 #' @import RColorBrewer
-#' @import getFullOrganism
 #'
 getFunctionWC <- function(matchNames) {
   #library(MotifDb)

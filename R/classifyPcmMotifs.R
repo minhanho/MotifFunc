@@ -5,7 +5,7 @@
 #' @param transfacFilePath A string indicating the path to the TRANSFAC file
 #'
 #' @return Returns matchNames - A value of class list indicating motif match names
-#' }
+#'
 #'
 #' @examples
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
@@ -18,7 +18,6 @@
 #'
 #' @import MotIV
 #' @import MotifDb
-#' @import correctJasparTransfac
 #'
 #' @export
 classifyPcmMotifs <- function(transfacFilePath) {

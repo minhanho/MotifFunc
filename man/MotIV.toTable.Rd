@@ -9,6 +9,9 @@ MotIV.toTable(match)
 \arguments{
 \item{match}{An S4 typically outputted by MotIV::motifMatch()}
 }
+\value{
+Returns df - A list indicating motif information as outlined in MotDb
+}
 \description{
 A function that takes S4 outputted by MotIV::motifMatch() and returns a list containing match information
 }

@@ -5,7 +5,7 @@
 #' @param organismVec An character vector containing species names
 #'
 #' @return Returns a string indicating chosen organism
-#' }
+#'
 #'
 #' @examples
 #' organismVec <- c("Mus musculus", "Saccharomyces cerevisiae", "Homo sapiens")
