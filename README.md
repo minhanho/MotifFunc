@@ -25,6 +25,7 @@ NOTE: this command does not work yet
 browseVignettes("MotifFunc")
 ```
 
+```bash
 ├── DESCRIPTION
 ├── LICENSE
 ├── LICENSE.md
@@ -59,7 +60,7 @@ browseVignettes("MotifFunc")
     ├── getFullOrganism.Rd
     ├── getFunctionWC.Rd
     └── pickOrganism.Rd
-
+```
 
 ## Example Sequence of Functions
 ```
