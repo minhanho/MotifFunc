@@ -18,7 +18,7 @@ You can install the MotifFunc from github with:
 devtools::install_github("minhanho/MotifFunc")
 ```
 
-##Overview
+## Overview
 
 NOTE: this command does not work yet
 ``` 
@@ -104,7 +104,6 @@ lsf.str("package:MotifFunc")
 * classifySeqMotifs : function (consensusSeq)
 * getFunctionWC : function(matchNames)
 
-[IPR]
 The functions classifyPcmMotifs, classifySeqMotifs, as well as helper functions (excluding MotIV.toTable were authored by Minh An. The classifyPcmMotifs function makes use of functions from MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The classifySeqMotifs function makes use of functions from universalmotif R package to create a PCM of the motif produced by a given sequence, MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The getFunctionWC function makes use of functions from MotifDb R package to retrieve motif match information, biomartr R package to retrieve GO information, wordcloud R package to produce the visualization, and RColorBrewer R package to format the colouring of the visualization.
 
 The helper function MotIV.toTable is entirely the work of Shannon P, Richards M, written in the MotifDb documentation but not yet integrated into MotifDb.
