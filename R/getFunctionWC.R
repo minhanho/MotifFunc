@@ -23,8 +23,9 @@
 #' @import tm
 #' @import RColorBrewer
 #'
+#'@export
 getFunctionWC <- function(matchNames) {
-  #library(MotifDb)
+  library(MotifDb)
 
   functionCollection <- c()
   for (x in 1:nrow(matchNames)){

@@ -2,6 +2,7 @@
 
 export(classifyPcmMotifs)
 export(classifySeqMotifs)
+export(getFunctionWC)
 import(Biostrings)
 import(MotIV)
 import(MotifDb)

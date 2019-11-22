@@ -17,6 +17,6 @@ A function that takes S4 outputted by MotIV::motifMatch() and returns a list con
 }
 \examples{
 data("matches")
-MotIV.toTable("Hsapiens")
+MotIV.toTable(matches)
 
 }
