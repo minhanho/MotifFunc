@@ -12,7 +12,9 @@
 #' MotIV.toTable(matches)
 #'
 
-#All of this code is taken directly from https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R
+#All of this code is taken directly from the documentation of MotifDb: https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R
+#Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA Binding Sequence Motifs. R package version 1.26.0.
+
 MotIV.toTable = function (match) {
   if (length (match@bestMatch) == 0)
     return (NA)

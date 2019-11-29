@@ -1,0 +1,69 @@
+---
+title: "Introduction to `MotifFunc`"
+author: "Minh An Ho"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MotifFuncVignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Functionality Visualization for Motifs
+
+## Overview
+
+
+
+## Licensing 
+`MotifFunc` is licensed under the MIT license. If you use `MotifFunc` in published research, please cite:
+
+Ho, M. (2019). MotifFunc R. Retrieved from https://github.com/minhanho/MotifFunc (Original work published 2019)
+
+## Getting Help
+Create an issue on github https://github.com/minhanho/MotifFunc/issues
+
+## Installation
+
+```{r setup}
+library(MotifFunc)
+```
+
+## Example Sequence of Functions
+```{r eval=FALSE}
+PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
+jaspar.scores <- MotifFunc:::jaspar.scores
+matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
+functionFreq <- MotifFunc::(matchNames)
+```
+Or
+
+```{r eval=FALSE}
+jaspar.scores <- MotifFunc:::jaspar.scores
+matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+functionFreq <- MotifFunc::getFunctionWC(matchNames)
+```
+
+## Example Output
+
+![WC](/inst/extdata/WCoutput.png)
+
+## Retreiving an Input Data Set
+When using `classifySeqMotifs()`, the input is a string composed of your choice of nucleotides (i.e. "A", "C", "G", "T")
+
+But when using `classifyPcmMotifs()`, you must specify a path on your computer to a transfac or txt file containing frequency matrix data, to do this:
+* Navigate to http://jaspar.genereg.net/
+* Select a profile
+* Download the "Frequency Matrix" in TRANSFAC format
+
+![Ex1](/inst/extdata/Get-Data-Ex1.png)
+![Ex2](/inst/extdata/Get-Data-Ex2.png)
+
+

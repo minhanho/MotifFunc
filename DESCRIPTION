@@ -18,7 +18,8 @@ Imports:
     biomartr,
     tm,
     RColorBrewer,
-    wordcloud
+    wordcloud,
+    shiny
 biocViews:
     Annotation,
     Software,
@@ -37,3 +38,7 @@ biocViews:
     Infrastructure,
     SequenceMatching,
     Sequencing
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

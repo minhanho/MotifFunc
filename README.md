@@ -15,7 +15,9 @@ __Note:__ The current version only supports visualization for motif matches with
 You can install the MotifFunc from github with:
 
 ``` 
-devtools::install_github("minhanho/MotifFunc")
+require("devtools")
+devtools::install_github("minhanho/MotifFunc", build_vignettes = TRUE)
+library("MotifFunc")
 ```
 
 ## Overview
@@ -62,35 +64,7 @@ browseVignettes("MotifFunc")
     └── pickOrganism.Rd
 ```
 
-## Example Sequence of Functions
-```
-PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-jaspar.scores <- MotifFunc:::jaspar.scores
-matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
-functionFreq <- MotifFunc::(matchNames)
-```
-Or
-
-```
-jaspar.scores <- MotifFunc:::jaspar.scores
-matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
-functionFreq <- MotifFunc::getFunctionWC(matchNames)
-```
-
-## Example Output
-
-![WC](/inst/extdata/WCoutput.png)
-
-## Retreiving an Input Data Set
-When using `classifySeqMotifs()`, the input is a string composed of your choice of nucleotides (i.e. "A", "C", "G", "T")
-
-But when using `classifyPcmMotifs()`, you must specify a path on your computer to a transfac or txt file containing frequency matrix data, to do this:
-* Navigate to http://jaspar.genereg.net/
-* Select a profile
-* Download the "Frequency Matrix" in TRANSFAC format
-
-![Ex1](/inst/extdata/Get-Data-Ex1.png)
-![Ex2](/inst/extdata/Get-Data-Ex2.png)
+![Slide](/inst/extdata/HO_M_A1.png)
 
 ## Contribution
 
@@ -110,9 +84,6 @@ The helper function MotIV.toTable is entirely the work of Shannon P and Richards
 
 The rest of the contributions are made by Minh An.
 
-## One Minute Pitch Slide
-
-![Slide](/inst/extdata/HO_M_A1.png)
 
 ## References
 1. Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA Binding Sequence Motifs. R package version 1.26.0.
