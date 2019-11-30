@@ -23,12 +23,12 @@ MotIV.toTable = function (match) {
 
   df = data.frame (stringsAsFactors=FALSE)
   for (alignment in alignments) {
-    x = alignment
-    name = x@TF@name
-    eVal = x@evalue
-    sequence = x@sequence
-    match = x@match
-    strand = x@strand
+    aligned = alignment
+    name = aligned@TF@name
+    eVal = aligned@evalue
+    sequence = aligned@sequence
+    match = aligned@match
+    strand = aligned@strand
     df = rbind (df, data.frame (name=name, eVal=eVal, sequence=sequence,
                                 match=match, strand=strand, stringsAsFactors=FALSE))
   } # for alignment

@@ -20,6 +20,13 @@ devtools::install_github("minhanho/MotifFunc", build_vignettes = TRUE)
 library("MotifFunc")
 ```
 
+To run the shiny app:
+[NOTE: This isn't ready yet]
+
+``` 
+runMotifFunc()
+``` 
+
 ## Overview
 
 NOTE: this command does not work yet
@@ -28,40 +35,43 @@ browseVignettes("MotifFunc")
 ```
 
 ```bash
+.
 ├── DESCRIPTION
 ├── LICENSE
 ├── LICENSE.md
 ├── MotifFunc.Rproj
 ├── NAMESPACE
 ├── R
-│  ├── MotIV.toTable.R
-│  ├── classifyPcmMotifs.R
-│  ├── classifySeqMotifs.R
-│  ├── correctJasparTransfac.R
-│  ├── getFullOrganism.R
-│  ├── getFunctionWC.R
-│  ├── pickOrganism.R
-│  └── sysdata.rda
+│    ├── MotIV.toTable.R
+│    ├── classifyPcmMotifs.R
+│    ├── classifySeqMotifs.R
+│    ├── correctJasparTransfac.R
+│    ├── getFullOrganism.R
+│    ├── getFunctionWC.R
+│    ├── pickOrganism.R
+│    └── sysdata.rda
 ├── README.md
 ├── data
-│  ├── matches.rda
-│  └── organismFullNames.rda
+│    ├── matches.rda
+│    └── organismFullNames.rda
 ├── inst
-│   └── extdata
-│     ├── Get-Data-Ex1.png
-│     ├── Get-Data-Ex2.png
-│     ├── HO_M_A1.png
-│     ├── MA0007.1.transfac
-│     ├── WCoutput.png
-│     └── new0007.txt
-└── man
-    ├── MotIV.toTable.Rd
-    ├── classifyPcmMotifs.Rd
-    ├── classifySeqMotifs.Rd
-    ├── correctJasparTransfac.Rd
-    ├── getFullOrganism.Rd
-    ├── getFunctionWC.Rd
-    └── pickOrganism.Rd
+│    └── extdata
+│        ├── Get-Data-Ex1.png
+│        ├── Get-Data-Ex2.png
+│        ├── HO_M_A1.png
+│        ├── MA0007.1.transfac
+│        ├── WCoutput.png
+│        └── new0007.txt
+├── man
+│    ├── MotIV.toTable.Rd
+│    ├── classifyPcmMotifs.Rd
+│    ├── classifySeqMotifs.Rd
+│    ├── correctJasparTransfac.Rd
+│    ├── getFullOrganism.Rd
+│    ├── getFunctionWC.Rd
+│    └── pickOrganism.Rd
+└── vignettes
+    └── MotifFuncVignette.Rmd
 ```
 
 ![Slide](/inst/extdata/HO_M_A1.png)
