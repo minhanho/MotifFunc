@@ -1,0 +1,12 @@
+citHeader("To cite MotifFunc in publications use:")
+
+citEntry(
+  entry    = "Unpublished",
+  title    = "MotifFunc: Functionality Visualization for Motifs",
+  author   = "Minh An Ho",
+  note     = "Unpublished",
+  year     = "2019",
+  textVersion = paste(
+
+  )
+)
