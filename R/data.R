@@ -26,4 +26,4 @@
 #' \dontrun{
 #'  organismFullNames
 #' }
-"organimsFullNames"
+"organismFullNames"

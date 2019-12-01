@@ -42,25 +42,21 @@ browseVignettes("MotifFunc")
 ├── MotifFunc.Rproj
 ├── NAMESPACE
 ├── R
-│    ├── MotIV.toTable.R
+│    ├── classifyMotifs.R
 │    ├── classifyPcmMotifs.R
-│    ├── classifySeqMotifs.R
-│    ├── correctJasparTransfac.R
-│    ├── getFullOrganism.R
+│    ├── data.R
 │    ├── getFunctionWC.R
-│    ├── pickOrganism.R
+│    ├── helperFunctions.R
 │    └── sysdata.rda
 ├── README.md
 ├── data
 │    ├── matches.rda
 │    └── organismFullNames.rda
 ├── inst
+│    ├── CITATION
 │    └── extdata
-│        ├── Get-Data-Ex1.png
-│        ├── Get-Data-Ex2.png
 │        ├── HO_M_A1.png
 │        ├── MA0007.1.transfac
-│        ├── WCoutput.png
 │        └── new0007.txt
 ├── man
 │    ├── MotIV.toTable.Rd
@@ -69,7 +65,13 @@ browseVignettes("MotifFunc")
 │    ├── correctJasparTransfac.Rd
 │    ├── getFullOrganism.Rd
 │    ├── getFunctionWC.Rd
+│    ├── matches.Rd
+│    ├── organismFullNames.Rd
 │    └── pickOrganism.Rd
+├── tests
+│    ├── testthat
+│    │     └── test-MotifFunc.R
+│    └── testthat.R
 └── vignettes
     └── MotifFuncVignette.Rmd
 ```
