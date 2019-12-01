@@ -1,9 +1,11 @@
 #' Converts TRANSFAC file to adjusted txt file for package function
 #'
-#' A function that Removes extraneous lines of TRANSFAC files for usable txt format for package functions
+#' A function that Removes extraneous lines of TRANSFAC files for usable txt
+#' format for package functions
 #'
 #' @param PWMfile A string indicating the path to the downloaded TRANSFAC file
-#' @param newFilePath A string indicating the desired path to the adjusted txt PCM file
+#' @param newFilePath A string indicating the desired path to the adjusted txt
+#' PCM file
 #'
 #' @examples
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
@@ -37,7 +39,8 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
 
 #' Converts S4 output of MotIV::motifMatch() to a list
 #'
-#' A function that takes S4 outputted by MotIV::motifMatch() and returns a list containing match information
+#' A function that takes S4 outputted by MotIV::motifMatch() and returns a list
+#' containing match information
 #'
 #' @param match An S4 typically outputted by MotIV::motifMatch()
 #'
@@ -48,9 +51,12 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
 #' data("matches")
 #' MotIV.toTable(matches)
 #'
+#'@references
+#'Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA
+#'Binding Sequence Motifs. R package version 1.26.0.
+#'\href{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
+#'
 
-#All of this code is taken directly from the documentation of MotifDb: https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R
-#Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA Binding Sequence Motifs. R package version 1.26.0.
 
 MotIV.toTable = function (match) {
   if (length (match@bestMatch) == 0)
@@ -75,9 +81,11 @@ MotIV.toTable = function (match) {
 
 #' Gets full species name of organism
 #'
-#' A function that takes organism names in MotifDb format, retrieves corresponding full species name
+#' A function that takes organism names in MotifDb format, retrieves
+#' corresponding full species name
 #'
-#' @param MotifDbOrganism A string indicating organism/species names (based on MotifDb records)
+#' @param MotifDbOrganism A string indicating organism/species names (based on
+#' MotifDb records)
 #'
 #' @return Returns fullName - A string indicating full species name
 #'

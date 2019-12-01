@@ -1,10 +1,13 @@
 #' Classifies motifs within given DNA sequence
 #'
-#' A function that creates a motif PWM based on given DNA consensus sequence and finds matches within the MotifDb database
+#' A function that creates a motif PWM based on given DNA consensus sequence
+#' and finds matches within the MotifDb database
 #'
-#' @param consensusSeq A string indicating a desired consensus sequence (i.e. Contains only "A", "T", "C", "G")
+#' @param consensusSeq A string indicating a desired consensus sequence (i.e.
+#' Contains only "A", "T", "C", "G")
 #'
-#' @return Returns matchNames - A value of class list indicating motif match names
+#' @return Returns matchNames - A value of class list indicating motif match
+#' names
 #'
 #'
 #' @examples
@@ -34,11 +37,13 @@ classifySeqMotifs <- function(consensusSeq) {
 
 #' Classifies motifs within given PWM file
 #'
-#' A function that finds matches for given motif PWM to motifs within the MotifDb database
+#' A function that finds matches for given motif PWM to motifs within the
+#' MotifDb database
 #'
 #' @param transfacFilePath A string indicating the path to the TRANSFAC file
 #'
-#' @return Returns matchNames - A value of class list indicating motif match names
+#' @return Returns matchNames - A value of class list indicating motif match
+#' names
 #'
 #'
 #' @examples
