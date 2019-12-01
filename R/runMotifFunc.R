@@ -16,7 +16,7 @@
 
 runMotifFunc <- function() {
   appDir <- system.file("shiny-scripts",
-                        package = "MoifFunc")
+                        package = "MotifFunc")
   shiny::runApp(appDir, display.mode = "normal")
   return()
 }
