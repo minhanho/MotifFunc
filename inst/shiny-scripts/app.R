@@ -14,7 +14,7 @@ ui <- fluidPage(
                              label = "Input PCM .transfac file:"),
                  textInput(inputId = "seqText",
                            h3("Sequence input (i.e. Composed of A,C,T, or/and G):"))
-                 ), mainPanel(plotOutput("plot")))
+                 ), mainPanel(textOutput(outputId = "inputMessage"),textOutput(outputId = "loadMessage"), plotOutput("plot")))
 
 )
 
@@ -34,8 +34,11 @@ server <- function(input, output) {
         sprintf("No uploaded PCM file, used sequence %s.", input$seqText$name)
       matchNames <- MotifFunc::classifySeqMotifs(input$seqText$datapath)
     }
-    output$plot <- renderPlot({message <-sprintf("Wordcloud visualization is loading...")
-              MotifFunc::getFunctionWC(matchNames)})
+    output$inputMessage <- renderText({message})
+    output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
+    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)})
+    output$loadMessage <- renderText({sprintf("Wordcloud visualization is complete.")})
+
   })
 
 
