@@ -29,7 +29,6 @@ runMotifFunc()
 
 ## Overview
 
-NOTE: this command does not work yet
 ``` 
 browseVignettes("MotifFunc")
 ```
