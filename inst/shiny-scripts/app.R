@@ -14,8 +14,8 @@ ui <- fluidPage(
                              label = "Input PCM .transfac file:"),
                  textInput(inputId = "seqText", h3("Text input"),
                            value = "Enter text...")
-                 )),
-  mainPanel(plotOutput("plot"))
+                 ), mainPanel(plotOutput("plot")))
+
 )
 
 server <- function(input, output) {
