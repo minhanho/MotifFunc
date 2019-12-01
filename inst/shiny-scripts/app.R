@@ -9,11 +9,11 @@ ui <- fluidPage(
   titlePanel("Wordcloud visualization of motif functions"),
   sidebarLayout( position = "right",
                  sidebarPanel(
-                   helpText(h3("Input PCM .transfac file or sequence (i.e. composed of A,C,T, or G). If both are provided, the file will be used")),
+                   helpText(h3("Input for motif classification. If both are provided, the file will be used")),
                    fileInput(inputId = "pcmFile",
                              label = "Input PCM .transfac file:"),
-                 textInput(inputId = "seqText", h3("Text input"),
-                           value = "Enter text...")
+                 textInput(inputId = "seqText",
+                           h3("Sequence input (i.e. Composed of A,C,T, or/and G):"))
                  ), mainPanel(plotOutput("plot")))
 
 )
@@ -34,7 +34,8 @@ server <- function(input, output) {
         sprintf("No uploaded PCM file, used sequence %s.", input$seqText$name)
       matchNames <- MotifFunc::classifySeqMotifs(input$seqText$datapath)
     }
-    output$plot <- renderPlot(MotifFunc::getFunctionWC(matchNames))
+    output$plot <- renderPlot({message <-sprintf("Wordcloud visualization is loading...")
+              MotifFunc::getFunctionWC(matchNames)})
   })
 
 
