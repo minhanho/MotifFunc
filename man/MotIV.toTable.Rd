@@ -13,10 +13,16 @@ MotIV.toTable(match)
 Returns df - A list indicating motif information as outlined in MotDb
 }
 \description{
-A function that takes S4 outputted by MotIV::motifMatch() and returns a list containing match information
+A function that takes S4 outputted by MotIV::motifMatch() and returns a list
+containing match information
 }
 \examples{
 data("matches")
 MotIV.toTable(matches)
 
+}
+\references{
+Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA
+Binding Sequence Motifs. R package version 1.26.0.
+\href{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
 }

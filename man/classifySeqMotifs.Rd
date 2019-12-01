@@ -7,13 +7,16 @@
 classifySeqMotifs(consensusSeq)
 }
 \arguments{
-\item{consensusSeq}{A string indicating a desired consensus sequence (i.e. Contains only "A", "T", "C", "G")}
+\item{consensusSeq}{A string indicating a desired consensus sequence (i.e.
+Contains only "A", "T", "C", "G")}
 }
 \value{
-Returns matchNames - A value of class list indicating motif match names
+Returns matchNames - A value of class list indicating motif match
+names
 }
 \description{
-A function that creates a motif PWM based on given DNA consensus sequence and finds matches within the MotifDb database
+A function that creates a motif PWM based on given DNA consensus sequence
+and finds matches within the MotifDb database
 }
 \examples{
 jaspar.scores <- MotifFunc:::jaspar.scores

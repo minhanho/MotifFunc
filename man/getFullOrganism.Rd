@@ -7,13 +7,15 @@
 getFullOrganism(MotifDbOrganism)
 }
 \arguments{
-\item{MotifDbOrganism}{A string indicating organism/species names (based on MotifDb records)}
+\item{MotifDbOrganism}{A string indicating organism/species names (based on
+MotifDb records)}
 }
 \value{
 Returns fullName - A string indicating full species name
 }
 \description{
-A function that takes organism names in MotifDb format, retrieves corresponding full species name
+A function that takes organism names in MotifDb format, retrieves
+corresponding full species name
 }
 \examples{
 getFullOrganism("Hsapiens")

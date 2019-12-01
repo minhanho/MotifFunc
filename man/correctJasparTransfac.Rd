@@ -9,10 +9,12 @@ correctJasparTransfac(PWMfile, newFilePath)
 \arguments{
 \item{PWMfile}{A string indicating the path to the downloaded TRANSFAC file}
 
-\item{newFilePath}{A string indicating the desired path to the adjusted txt PCM file}
+\item{newFilePath}{A string indicating the desired path to the adjusted txt
+PCM file}
 }
 \description{
-A function that Removes extraneous lines of TRANSFAC files for usable txt format for package functions
+A function that Removes extraneous lines of TRANSFAC files for usable txt
+format for package functions
 }
 \examples{
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")

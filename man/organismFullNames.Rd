@@ -9,8 +9,9 @@
 organismFullNames
 }
 \description{
-Abbreviated organisms were taken from those stored in MotifDb that are associated with motifs
-There is sometimes more than 1 orgnism associated to a motif
+Abbreviated organisms were taken from those stored in MotifDb that are
+associated with motifs.
+There is sometimes more than 1 organism associated to a motif.
 }
 \examples{
 \dontrun{

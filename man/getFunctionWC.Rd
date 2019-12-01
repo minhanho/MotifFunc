@@ -2,18 +2,23 @@
 % Please edit documentation in R/getFunctionWC.R
 \name{getFunctionWC}
 \alias{getFunctionWC}
-\title{Creates word cloud visualization of GO functionality based on Motif match names from MotifDb}
+\title{Creates word cloud visualization of GO functionality based on Motif match
+names from MotifDb}
 \usage{
 getFunctionWC(matchNames)
 }
 \arguments{
-\item{matchNames}{A character vector indicating Motif "names" (based on MotifDb records)}
+\item{matchNames}{A character vector indicating Motif "names" (based on
+MotifDb records)}
 }
 \value{
-Returns functionFreq - A table/list indicating frequency of found functionalities
+Returns functionFreq - A table/list indicating frequency of found
+functionalities
 }
 \description{
-A function that takes motif "names" in MotifDb format, retrieves corresponding GO functions and produces a word cloud visualization based on function frequency within all specified motifs.
+A function that takes motif "names" in MotifDb format, retrieves
+corresponding GO functions and produces a word cloud visualization based on
+function frequency within all specified motifs.
 }
 \examples{
 jaspar.scores <- MotifFunc:::jaspar.scores
