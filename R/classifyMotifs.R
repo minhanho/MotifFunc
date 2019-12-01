@@ -19,6 +19,9 @@
 #' @export
 classifySeqMotifs <- function(consensusSeq) {
   #Creating a motif from sequence
+  if  (! grepl("[ACTGactg]", letters)){
+    stop("Invalid sequence")
+  }
   query <- universalmotif::create_motif(consensusSeq, type = "ICM")
   queryMotif <- query["motif"]
   queryList <- list("Unknown"= queryMotif)
