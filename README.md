@@ -43,7 +43,6 @@ browseVignettes("MotifFunc")
 ├── NAMESPACE
 ├── R
 │    ├── classifyMotifs.R
-│    ├── classifyPcmMotifs.R
 │    ├── data.R
 │    ├── getFunctionWC.R
 │    ├── helperFunctions.R
