@@ -15,15 +15,8 @@ ui <- fluidPage(
                  textInput(inputId = "seqText",
                            h3("Sequence input (i.e. Composed of A,C,T, or/and G):")),
                  textOutput(outputId = "inputMessage"),
-                 textOutput(outputId = "loadMessage"),
-                 tags$head(tags$script('$(document).on("shiny:connected", function(e) {
-                            Shiny.onInputChange("innerWidth", window.innerWidth);
-                            });
-                            $(window).resize(function(e) {
-                            Shiny.onInputChange("innerWidth", window.innerWidth);
-                            });
-                            '))
-                 ), mainPanel(plotOutput("plot")))
+                 textOutput(outputId = "loadMessage")
+                 ), mainPanel(plotOutput("plot", width = "100%", height = "400px")))
 
 )
 
@@ -45,7 +38,7 @@ server <- function(input, output) {
     }
     output$inputMessage <- renderText({message})
     output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
-    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)}, width = 800, height=reactive(ifelse(!is.null(input$innerWidth),input$innerWidth*3/5,0)))
+    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)})
     output$loadMessage <- renderText({sprintf("Wordcloud visualization is complete.")})
 
   })
