@@ -13,8 +13,10 @@ ui <- fluidPage(
                    fileInput(inputId = "pcmFile",
                              label = "Input PCM .transfac file:"),
                  textInput(inputId = "seqText",
-                           h3("Sequence input (i.e. Composed of A,C,T, or/and G):"))
-                 ), mainPanel(textOutput(outputId = "inputMessage"),textOutput(outputId = "loadMessage"), plotOutput("plot")))
+                           h3("Sequence input (i.e. Composed of A,C,T, or/and G):")),
+                 textOutput(outputId = "inputMessage"),
+                 textOutput(outputId = "loadMessage")
+                 ), mainPanel(plotOutput("plot")))
 
 )
 
