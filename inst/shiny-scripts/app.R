@@ -16,7 +16,7 @@ ui <- fluidPage(
                            h3("Sequence input (i.e. Composed of A,C,T, or/and G):")),
                  textOutput(outputId = "inputMessage"),
                  textOutput(outputId = "loadMessage")
-                 ), mainPanel(plotOutput("plot")))
+                 ), mainPanel(plotOutput("plot", width = "100%")))
 
 )
 
