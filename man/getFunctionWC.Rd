@@ -31,3 +31,7 @@ matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 functionFreq <- MotifFunc::getFunctionWC(matchNames)
 
 }
+\references{
+Hines, K. (2014). Stack Overflow source code [Source code].
+https://stackoverflow.com/questions/26937960/creating-word-cloud-of-phrases-not-individual-words-in-r.
+}

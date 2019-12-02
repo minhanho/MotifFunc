@@ -19,7 +19,8 @@ Imports:
     tm,
     RColorBrewer,
     wordcloud,
-    shiny
+    shiny,
+    tools
 biocViews:
     Annotation,
     Software,

@@ -21,7 +21,6 @@ library("MotifFunc")
 ```
 
 To run the shiny app:
-[NOTE: This isn't ready yet]
 
 ``` 
 runMotifFunc()
@@ -107,6 +106,7 @@ The rest of the contributions are made by Minh An.
 9. Ingo Feinerer, Kurt Hornik, and David Meyer (2008). Text Mining Infrastructure in R. Journal of Statistical Software 25(5): 1-54. URL: http://www.jstatsoft.org/v25/i05/.
 10. Erich Neuwirth (2014). RColorBrewer: ColorBrewer Palettes. R package version 1.1-2. https://CRAN.R-project.org/package=RColorBrewer
 11. Silva A. (2019). TestingPackage: Calculates Information Criteria Values. R package version 0.1.0, https://github.com/anjalisilva/TestingPackage.
+12. Hines, K. (2014). Stack Overflow source code [Source code]. https://stackoverflow.com/questions/26937960/creating-word-cloud-of-phrases-not-individual-words-in-r.
 
 ## Example Output
 

@@ -6,7 +6,7 @@ jaspar.scores <- MotifFunc:::jaspar.scores
 exampleFile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 
 ui <- fluidPage(
-  titlePanel("Wordcloud visualization of motif functions"),
+  titlePanel("Wordcloud Visualization of Motif Functions"),
   sidebarLayout( position = "right",
                  sidebarPanel(
                    helpText(h3("Input for motif classification. If both are provided, the file will be used")),
@@ -21,10 +21,11 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
+  output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
   observe({
     if (is.null(input$pcmFile) || is.null(input$seqText)) {
       message <-
-        sprintf("Default PCM file is MA0007.1.transfac in extdata of MotifFunc package.")
+        sprintf("No uploaded PCM file, used default PCM file MA0007.1.transfac in extdata of MotifFunc package.")
       matchNames <- MotifFunc::classifyPcmMotifs(exampleFile)
     } else if (! is.null(input$pcmFile)) {
       message <-
@@ -37,7 +38,6 @@ server <- function(input, output) {
       matchNames <- MotifFunc::classifySeqMotifs(input$seqText$datapath)
     }
     output$inputMessage <- renderText({message})
-    output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
     output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)})
     output$loadMessage <- renderText({sprintf("Wordcloud visualization is complete.")})
 

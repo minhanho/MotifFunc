@@ -19,9 +19,31 @@ knitr::opts_chunk$set(
 
 # Functionality Visualization for Motifs
 
-## Overview
+## Introduction
 
+MotifFunc contains functions that handle genomic data to classify motifs, determine functionality, and group broad functionalities for word cloud visualization. As with the word cloud format, functions with the same frequency are displayed in the same colour and size.
 
+## Installation
+
+You can install the MotifFunc from github with:
+
+``` 
+require("devtools")
+devtools::install_github("minhanho/MotifFunc", build_vignettes = TRUE)
+library("MotifFunc")
+```
+
+You can also run the package by downloading the repository, followed by the commands:
+``` 
+setwd("<package path>")
+devtools::load_all()
+``` 
+
+To run the shiny app:
+
+``` 
+runMotifFunc()
+``` 
 
 ## Licensing 
 `MotifFunc` is licensed under the MIT license. If you use `MotifFunc` in published research, please cite:
@@ -31,11 +53,6 @@ Ho, M. (2019). MotifFunc R. Retrieved from https://github.com/minhanho/MotifFunc
 ## Getting Help
 Create an issue on github https://github.com/minhanho/MotifFunc/issues
 
-## Installation
-
-```
-library(MotifFunc)
-```
 
 ## Example Sequence of Functions
 ```
@@ -59,5 +76,12 @@ But when using `classifyPcmMotifs()`, you must specify a path on your computer t
 * Navigate to http://jaspar.genereg.net/
 * Select a profile
 * Download the "Frequency Matrix" in TRANSFAC format
+
+##Helper Functions
+A number of non-exported helper functions can be found in package repository to aid in various data processing tasks.
+* `correctJasparTransfac()` - processes .transfac files and produces a .txt file that is compatible with `MotIV::readPWMfile()` to use as a query motif(s)
+* `MotIV.toTable()` - returns list of match information from S4 motiv object
+* `getFullOrganism()` - returns full name(s) of abbreviated organism names from `MotifDb` motif matches for use with `biomartr` functions
+* `pickOrganism()` - prompts user to choose an organism to query in `biomartr` for a multi-organism MotifDb motif match
 
 

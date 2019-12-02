@@ -33,7 +33,6 @@ classifySeqMotifs <- function(consensusSeq) {
   matchNames <- matchesTable["name"]
   return(matchNames)
 }
-#[END]
 
 #' Classifies motifs within given PWM file
 #'
@@ -57,9 +56,14 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @import MotIV
 #' @import MotifDb
+#' @import tools
 #'
 #' @export
 classifyPcmMotifs <- function(transfacFilePath) {
+  if (!(tools::file_ext(transfacFilePath) == "transfac") && !(tools::file_ext(transfacFilePath) == "txt")){
+    stop("Incorrect input file type. Must be .transfac or .txt")
+  }
+
   correctJasparTransfac(transfacFilePath, "newFile.txt")
   queryMotif <- MotIV::readPWMfile("newFile.txt")
   matches <- MotIV::motifMatch(queryMotif, as.list(MotifDb::MotifDb), top=20)

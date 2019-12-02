@@ -22,6 +22,10 @@
 #' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
+#'@references
+#'Hines, K. (2014). Stack Overflow source code [Source code].
+#'https://stackoverflow.com/questions/26937960/creating-word-cloud-of-phrases-not-individual-words-in-r.
+#'
 #' @import MotifDb
 #' @import biomartr
 #' @import wordcloud
@@ -33,7 +37,7 @@ getFunctionWC <- function(matchNames) {
   library(MotifDb)
 
   functionCollection <- c()
-  for (x in 1:nrow(matchNames)){
+  for (x in seq_len(nrow(matchNames))){
     dbInfo <- noquote (t (as.data.frame (values(MotifDb::MotifDb [matchNames[x,]]))))
     matchOrganism <- dbInfo[9]
 
@@ -49,14 +53,11 @@ getFunctionWC <- function(matchNames) {
     }
   }
 
-  formattedFuncs <- c()
-  for (x in 1:length(functionCollection)){
-    newFunc <- gsub("[[:space:]]", "", functionCollection[x])
-    formattedFuncs <- append(formattedFuncs, newFunc)
-  }
+  df<-data.frame(funcs=functionCollection)
+  tb<-table(df$funcs)
 
   set.seed(1000)
-  wordcloud::wordcloud(formattedFuncs, scale=c(1,0.5),random.order=FALSE,
+  wordcloud::wordcloud(names(tb), as.numeric(tb), scale=c(1,0.5),random.order=FALSE,
                        rot.per=0.2, colors=RColorBrewer::brewer.pal(8, "Dark2"))
   set.seed(NULL)
   functionFreq <- sort(table(formattedFuncs))

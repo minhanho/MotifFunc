@@ -19,7 +19,7 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
   counter <- 1
   ignoreLines <- c("AC", "ID", "BF", "PO")
 
-  for (x in 1:lenA){
+  for (x in seq_len(lenA)){
     if (!((substr(A[x], start=1, stop=2)) %in% ignoreLines)) {
       if (((substr(A[x], start=1, stop=2)) != "XX") | ((x-1 > 0) && (!((substr(A[x-1], start=1, stop=2)) %in% ignoreLines)))) {
         newEx[counter] <- A[x]
@@ -33,8 +33,6 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
 
   lapply(newEx, write, newFilePath, append=TRUE)
 }
-
-#[END]
 
 
 #' Converts S4 output of MotIV::motifMatch() to a list
@@ -77,7 +75,6 @@ MotIV.toTable = function (match) {
   } # for alignment
   return (df)
 }
-#[END]
 
 #' Gets full species name of organism
 #'
@@ -97,7 +94,7 @@ MotIV.toTable = function (match) {
 
 getFullOrganism <- function(MotifDbOrganism) {
   data("organismFullNames")
-  for (x in 1:length(organismFullNames)){
+  for (x in seq_len(length(organismFullNames))){
     matcher <- strsplit(organismFullNames[x], "=")
     matcherTerms <- unlist(matcher)
     if (matcherTerms[1] == MotifDbOrganism){
@@ -112,8 +109,6 @@ getFullOrganism <- function(MotifDbOrganism) {
   }
   return(fullName)
 }
-
-#[END]
 
 #' Retrieves user input for organism selection
 #'
@@ -131,7 +126,7 @@ getFullOrganism <- function(MotifDbOrganism) {
 
 pickOrganism <- function(organismVec){
   outputString <- "Multi-species match. Pick organism: \n"
-  for (x in 1:length(organismVec)){
+  for (x in seq_len(length(organismVec))){
     outputString <- paste(outputString, organismVec[x], "\n")
   }
 
