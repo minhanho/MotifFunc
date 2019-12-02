@@ -38,7 +38,7 @@ server <- function(input, output) {
     }
     output$inputMessage <- renderText({message})
     output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
-    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)})
+    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)}, width = 800, height = 600)
     output$loadMessage <- renderText({sprintf("Wordcloud visualization is complete.")})
 
   })
