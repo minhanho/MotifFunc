@@ -77,11 +77,12 @@ But when using `classifyPcmMotifs()`, you must specify a path on your computer t
 * Select a profile
 * Download the "Frequency Matrix" in TRANSFAC format
 
-##Helper Functions
+## Helper Functions
 A number of non-exported helper functions can be found in package repository to aid in various data processing tasks.
 * `correctJasparTransfac()` - processes .transfac files and produces a .txt file that is compatible with `MotIV::readPWMfile()` to use as a query motif(s)
 * `MotIV.toTable()` - returns list of match information from S4 motiv object
 * `getFullOrganism()` - returns full name(s) of abbreviated organism names from `MotifDb` motif matches for use with `biomartr` functions
-* `pickOrganism()` - prompts user to choose an organism to query in `biomartr` for a multi-organism MotifDb motif match
 
+## BioMart and ENSEMBL Dependencies
 
+The Wordcloud visualization and thus shiny app is directly dependent on the BioMart server. Without internet connection or in the case of BioMart server issues, the wordcloud will not be produced.

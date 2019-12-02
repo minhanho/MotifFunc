@@ -21,16 +21,30 @@
 #'
 #' @export
 classifySeqMotifs <- function(consensusSeq) {
-  #Creating a motif from sequence
+  #Check that input is only composed of ACTG or produces error
   if  (grepl("[^ACTGactg]", consensusSeq)){
     stop("Invalid sequence")
   }
+
+  #Creating a motif from sequence; a universal motif object
   query <- universalmotif::create_motif(consensusSeq, type = "ICM")
+
+  #Extracting frequency matrix of motif
   queryMotif <- query["motif"]
+
+  #Creating list from motif matrix for query in motifMatch
   queryList <- list("Unknown"= queryMotif)
+
+  #Querying unknown motif against entire MotifDb database
+  #Retrieving top 20
   matches <- MotIV::motifMatch(queryList, as.list(MotifDb::MotifDb), top=20)
+
+  #Converting MotIV S4 object to table for simplified query
   matchesTable <- MotIV.toTable(matches)
+
+  #Extracting name of motif matches
   matchNames <- matchesTable["name"]
+
   return(matchNames)
 }
 
@@ -60,15 +74,28 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @export
 classifyPcmMotifs <- function(transfacFilePath) {
+  #Check if the input file is the correct format, i.e. correct file extension
+  #Errors if file is not a .transfac or .txt file
   if (!(tools::file_ext(transfacFilePath) == "transfac") && !(tools::file_ext(transfacFilePath) == "txt")){
     stop("Incorrect input file type. Must be .transfac or .txt")
   }
 
+  #Creates a new file with the correct PCM format for use with readPWMfile
   correctJasparTransfac(transfacFilePath, "newFile.txt")
+
+  #Producing frequency matrix of motif from file
   queryMotif <- MotIV::readPWMfile("newFile.txt")
+
+  #Querying unknown motif against entire MotifDb database
+  #Retrieving top 20
   matches <- MotIV::motifMatch(queryMotif, as.list(MotifDb::MotifDb), top=20)
+
+  #Converting MotIV S4 object to table for simplified query
   matchesTable <- MotIV.toTable(matches)
+
+  #Extracting name of motif matches
   matchNames <- matchesTable["name"]
+
   return(matchNames)
 }
 
