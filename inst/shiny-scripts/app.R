@@ -15,7 +15,8 @@ ui <- fluidPage(
                  textInput(inputId = "seqText",
                            h3("Sequence input (i.e. Composed of A,C,T, or/and G):")),
                  textOutput(outputId = "inputMessage"),
-                 textOutput(outputId = "loadMessage")
+                 textOutput(outputId = "loadMessage"),
+                 tags$head(tags$style("#myplot{height:100vh !important;}"))
                  ), mainPanel(plotOutput("plot", width = "100%")))
 
 )
