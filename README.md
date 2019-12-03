@@ -44,6 +44,7 @@ browseVignettes("MotifFunc")
 │    ├── data.R
 │    ├── getFunctionWC.R
 │    ├── helperFunctions.R
+│    ├── runMotifFunc.R
 │    └── sysdata.rda
 ├── README.md
 ├── data
@@ -51,10 +52,13 @@ browseVignettes("MotifFunc")
 │    └── organismFullNames.rda
 ├── inst
 │    ├── CITATION
-│    └── extdata
-│        ├── HO_M_A1.png
-│        ├── MA0007.1.transfac
-│        └── new0007.txt
+│    ├── extdata
+│    │    ├── HO_M_A1.png
+│    │    ├── MA0007.1.transfac
+│    │    ├── WCoutput.png
+│    │     └── new0007.txt
+│    └── shiny-scripts
+│        └── app.R
 ├── man
 │    ├── MotIV.toTable.Rd
 │    ├── classifyPcmMotifs.Rd
@@ -64,10 +68,11 @@ browseVignettes("MotifFunc")
 │    ├── getFunctionWC.Rd
 │    ├── matches.Rd
 │    ├── organismFullNames.Rd
-│    └── pickOrganism.Rd
+│    ├── pickOrganism.Rd
+│    └── runMotifFunc.Rd
 ├── tests
 │    ├── testthat
-│    │     └── test-MotifFunc.R
+│    │    └── test-MotifFunc.R
 │    └── testthat.R
 └── vignettes
     └── MotifFuncVignette.Rmd

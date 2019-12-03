@@ -11,7 +11,6 @@
 #'
 #'
 #' @examples
-#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #'
 #' @import MotIV
@@ -21,6 +20,9 @@
 #'
 #' @export
 classifySeqMotifs <- function(consensusSeq) {
+  #Load data for motifMatch()
+  MotifFunc::jaspar.scores
+
   #Check that input is only composed of ACTG or produces error
   if  (grepl("[^ACTGactg]", consensusSeq)){
     stop("Invalid sequence")
@@ -61,11 +63,9 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @examples
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #'
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 #'
 #' @import MotIV
@@ -79,6 +79,9 @@ classifyPcmMotifs <- function(transfacFilePath) {
   if (!(tools::file_ext(transfacFilePath) == "transfac") && !(tools::file_ext(transfacFilePath) == "txt")){
     stop("Incorrect input file type. Must be .transfac or .txt")
   }
+
+  #Load data for motifMatch()
+  MotifFunc::jaspar.scores
 
   #Creates a new file with the correct PCM format for use with readPWMfile
   correctJasparTransfac(transfacFilePath, "newFile.txt")

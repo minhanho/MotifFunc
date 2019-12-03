@@ -55,8 +55,10 @@ getFunctionWC <- function(matchNames) {
       #Converting lower case gene name to upper case for use with biomartr
       matchGene <- toupper(matchGene)
       #biomartr query for GO information
+      options(warn=-1)
       GO_tbl <- biomartr::getGO(organism = organism_full, genes = matchGene,
                                 filters = "uniprot_gn_symbol")
+      options(warn=0)
       #Extracting GO descriptions and adding to "collection" vector
       functionCollection <- append(functionCollection, unlist(GO_tbl[2],
                                                               use.names = FALSE))
