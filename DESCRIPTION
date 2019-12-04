@@ -20,7 +20,8 @@ Imports:
     RColorBrewer,
     wordcloud,
     shiny,
-    shinyjs
+    shinyjs,
+    tools
 biocViews:
     Annotation,
     Software,
