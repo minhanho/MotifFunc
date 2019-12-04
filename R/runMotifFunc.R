@@ -1,4 +1,3 @@
-
 #' Launch the shiny app for package MotifFunc
 #'
 #' A function that launches the shiny app for this package.

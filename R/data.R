@@ -20,7 +20,7 @@
 #' @format An character vector, in which each element has the format:
 #' \describe{
 #'  \item{abreviated name;<another abbreviated name>;...}{The semi colon is only used as a seperator for multiorganism motifs}
-#'  \item{=}(Beginning of full names)
+#'  \item{=}{Beginning of full names}
 #'  \item{full name=<another full name>=...}{The equals sign is only used as a seperator for multiorganism motifs}
 #'}
 #' @examples

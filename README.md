@@ -91,13 +91,15 @@ lsf.str("package:MotifFunc")
 * classifyPcmMotifs : function (transfacFilePath)  
 * classifySeqMotifs : function (consensusSeq)
 * getFunctionWC : function(matchNames)
+* runMotifFunc : function ()  
 
-The functions classifyPcmMotifs, classifySeqMotifs, as well as helper functions (excluding MotIV.toTable were authored by Minh An. The classifyPcmMotifs function makes use of functions from MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The classifySeqMotifs function makes use of functions from universalmotif R package to create a PCM of the motif produced by a given sequence, MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The getFunctionWC function makes use of functions from MotifDb R package to retrieve motif match information, biomartr R package to retrieve GO information, wordcloud R package to produce the visualization, and RColorBrewer R package to format the colouring of the visualization.
+The functions classifyPcmMotifs, classifySeqMotifs, getFunctionWC, as well as helper functions (excluding MotIV.toTable) were authored by Minh An. The classifyPcmMotifs function makes use of functions from MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The classifySeqMotifs function makes use of functions from universalmotif R package to create a PCM of the motif produced by a given sequence, MotIV R package to load a PCM .transfac file and generate motif matches using data from the MotifDb R package. The getFunctionWC function makes use of functions from MotifDb R package to retrieve motif match information, biomartr R package to retrieve GO information, wordcloud R package to produce the visualization, and RColorBrewer R package to format the colouring of the visualization. Showing function "phrases" for wordcloud output instead of single words was adapted from Hines, K. (2014). The 
 
 The helper function MotIV.toTable is entirely the work of Shannon P and Richards M, written in the MotifDb documentation but not yet integrated into MotifDb.
 
-The rest of the contributions are made by Minh An.
+The runMotifFunc is taken from the TestingPackage R package with very minor changes.
 
+The rest of the contributions are made by Minh An.
 
 ## References
 1. Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA Binding Sequence Motifs. R package version 1.26.0.
@@ -113,6 +115,7 @@ The rest of the contributions are made by Minh An.
 11. Silva A. (2019). TestingPackage: Calculates Information Criteria Values. R package version 0.1.0, https://github.com/anjalisilva/TestingPackage.
 12. Hines, K. (2014). Stack Overflow source code [Source code]. https://stackoverflow.com/questions/26937960/creating-word-cloud-of-phrases-not-individual-words-in-r.
 13. Attali, D. (2015). Stack Overflow source code [Source code]. https://stackoverflow.com/questions/30474538/possible-to-show-console-messages-written-with-message-in-a-shiny-ui.
+
 ## Example Output
 
 ![WC](/inst/extdata/WCoutput.png)

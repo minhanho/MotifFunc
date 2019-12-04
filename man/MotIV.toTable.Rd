@@ -24,5 +24,5 @@ MotIV.toTable(matches)
 \references{
 Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA
 Binding Sequence Motifs. R package version 1.26.0.
-\href{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
+\url{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
 }
