@@ -27,6 +27,9 @@ classifySeqMotifs <- function(consensusSeq) {
   if  (grepl("[^ACTGactg]", consensusSeq)){
     stop("Invalid sequence")
   }
+  else if (nchar(consensusSeq) < 3){
+    stop("Sequence is too short. Must be larger than 3 bases.")
+  }
 
   #Creating a motif from sequence; a universal motif object
   query <- universalmotif::create_motif(consensusSeq, type = "ICM")

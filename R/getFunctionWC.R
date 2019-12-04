@@ -44,8 +44,12 @@ getFunctionWC <- function(matchNames) {
     #Extracting name of organism(s) from motif information
     matchOrganism <- dbInfo[9]
 
+    #Organisms with the best genome annotation coverage generally
+    #MotifDb contains some organisms that aren't well covered in ENSEMBL
+    availableOrganisms <- c("Hsapiens", "Mmusculus", "Dmelanogaster", "Scerevisiae")
+
     #Currently only working for Homo sapiens, will add on this in the next submission
-    if (!is.na(matchOrganism) && (matchOrganism == "Hsapiens")){
+    if (!is.na(matchOrganism) && (matchOrganism %in% availableOrganisms)){
       #Retrieving full organism name for use with biomartr
       organism_full <- getFullOrganism(matchOrganism)
       #Extracting gene of interest from motif information
@@ -66,20 +70,28 @@ getFunctionWC <- function(matchNames) {
                                                               use.names = FALSE))
     }
   }
+  #Only runs if functions were found, given the organism constraints
+  if (functionCollection >= 1){
+    #Creating a table from vector of GO function descriptions
+    #This allows wordcloud() to accept and output phrases rather than words
+    #Adapted from the referenced StackOverflow link
+    df<-data.frame(funcs=functionCollection)
+    tb<-table(df$funcs)
 
-  #Creating a table from vector of GO function descriptions
-  #This allows wordcloud() to accept and output phrases rather than words
-  #Adapted from the referenced StackOverflow link
-  df<-data.frame(funcs=functionCollection)
-  tb<-table(df$funcs)
-
-  #Producing wordcloud visualization
-  #Colouring of words is produced by a function and theme provided by RColorBrewer
-  set.seed(1000)
-  wordcloud::wordcloud(names(tb), as.numeric(tb), scale=c(1,0.5),
-                       random.order=FALSE, rot.per=0.2,
-                       colors=RColorBrewer::brewer.pal(8, "Dark2"))
-  set.seed(NULL)
+    #Producing wordcloud visualization
+    #Colouring of words is produced by a function and theme provided by RColorBrewer
+    set.seed(1000)
+    wordcloud::wordcloud(names(tb), as.numeric(tb), scale=c(1,0.5),
+                         random.order=FALSE, rot.per=0.2,
+                         colors=RColorBrewer::brewer.pal(8, "Dark2"))
+    set.seed(NULL)
+  }
+  #For if no functions found
+  else{
+    #Flag for shiny app
+    tb <- 0
+    message("No functions found for available organisms.")
+  }
 
   return(sort(tb))
 }

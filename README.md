@@ -112,7 +112,7 @@ The rest of the contributions are made by Minh An.
 10. Erich Neuwirth (2014). RColorBrewer: ColorBrewer Palettes. R package version 1.1-2. https://CRAN.R-project.org/package=RColorBrewer
 11. Silva A. (2019). TestingPackage: Calculates Information Criteria Values. R package version 0.1.0, https://github.com/anjalisilva/TestingPackage.
 12. Hines, K. (2014). Stack Overflow source code [Source code]. https://stackoverflow.com/questions/26937960/creating-word-cloud-of-phrases-not-individual-words-in-r.
-
+13. Attali, D. (2015). Stack Overflow source code [Source code]. https://stackoverflow.com/questions/30474538/possible-to-show-console-messages-written-with-message-in-a-shiny-ui.
 ## Example Output
 
 ![WC](/inst/extdata/WCoutput.png)
