@@ -19,11 +19,9 @@ MotifDb database
 }
 \examples{
 transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
-jaspar.scores <- MotifFunc:::jaspar.scores
 matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 
 PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-jaspar.scores <- MotifFunc:::jaspar.scores
 matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 
 }

@@ -13,11 +13,9 @@
 #'
 #'
 #' @examples
-#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
-#' jaspar.scores <- MotifFunc:::jaspar.scores
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
 #' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
@@ -47,17 +45,21 @@ getFunctionWC <- function(matchNames) {
     matchOrganism <- dbInfo[9]
 
     #Currently only working for Homo sapiens, will add on this in the next submission
-    if (matchOrganism == "Hsapiens"){
+    if (!is.na(matchOrganism) && (matchOrganism == "Hsapiens")){
       #Retrieving full organism name for use with biomartr
       organism_full <- getFullOrganism(matchOrganism)
       #Extracting gene of interest from motif information
       matchGene <- dbInfo[4]
       #Converting lower case gene name to upper case for use with biomartr
       matchGene <- toupper(matchGene)
-      #biomartr query for GO information
+
+      #Supress warnings produced by biomart
       options(warn=-1)
+
+      #biomartr query for GO information
       GO_tbl <- biomartr::getGO(organism = organism_full, genes = matchGene,
                                 filters = "uniprot_gn_symbol")
+      #Un-supress warnings produced by biomart
       options(warn=0)
       #Extracting GO descriptions and adding to "collection" vector
       functionCollection <- append(functionCollection, unlist(GO_tbl[2],
@@ -79,9 +81,6 @@ getFunctionWC <- function(matchNames) {
                        colors=RColorBrewer::brewer.pal(8, "Dark2"))
   set.seed(NULL)
 
-  #Frequency table for functions, sorted from greatest freq to lowest
-  functionFreq <- sort(table(functionCollection))
-
-  return(functionFreq)
+  return(sort(tb))
 }
 #[END]

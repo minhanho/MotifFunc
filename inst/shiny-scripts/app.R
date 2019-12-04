@@ -1,48 +1,110 @@
 library(shiny)
-library(MotifFunc)
-library(MotifDb)
+library(shinyjs)#ADD THIS TO DESCRIPTION AND ADD ROXYGEN TAGS
+library(tools)
 
 jaspar.scores <- MotifFunc:::jaspar.scores
 exampleFile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 
+loadMessage <- function(input){
+  if (input == 1){
+    message("Default PCM file Wordcloud is loading...")
+  }
+  else if (input == 2){
+    message("New PCM file Wordcloud is loading...")
+  }
+  else if (input == 3){
+    message("New Sequence Wordcloud is loading...")
+  }
+  else{
+    message("No input given. Try again.")
+  }
+}
+
 ui <- fluidPage(
+  shinyjs::useShinyjs(),
   titlePanel("Wordcloud Visualization of Motif Functions"),
   sidebarLayout( position = "right",
                  sidebarPanel(
-                   helpText(h3("Input for motif classification. If both are provided, the file will be used")),
+                   actionButton("defaultButton", "Load Default File Wordcloud"),
+                   br(),
+                   helpText(h4("Input for motif matching. If both are provided, the sequence will be used")),
                    fileInput(inputId = "pcmFile",
-                             label = "Input PCM .transfac file:"),
-                 textInput(inputId = "seqText",
-                           h3("Sequence input (i.e. Composed of A,C,T, or/and G):")),
-                 textOutput(outputId = "inputMessage"),
-                 textOutput(outputId = "loadMessage")
-                 ), mainPanel(plotOutput("plot", width = "100%", height = "400px")))
+                             label = "Input PCM .transfac file:",
+                             placeholder = "MA0007.1.transfac (Default)"),
+                   textInput(inputId = "seqText",
+                           label = "Sequence input (i.e. Composed of A,C,T, or/and G):",
+                           value = NULL),
+                   actionButton("inputButton", "Create Wordcloud from Input"),
+                   textOutput(outputId = "inputMessage")
+
+                 ), mainPanel(textOutput("text"), plotOutput("plot", width = "100%",
+                                         height = "400px"),
+                 h4("Match Function Frequencies"), tableOutput("fTable")))
 
 )
 
 server <- function(input, output) {
-  output$loadMessage <- renderText({sprintf("Wordcloud visualization is loading...")})
-  observe({
-    if (is.null(input$pcmFile) || is.null(input$seqText)) {
-      message <-
-        sprintf("No uploaded PCM file, used default PCM file MA0007.1.transfac in extdata of MotifFunc package.")
-      matchNames <- MotifFunc::classifyPcmMotifs(exampleFile)
-    } else if (! is.null(input$pcmFile)) {
+
+  observeEvent(input$defaultButton, {
+    withCallingHandlers({
+      shinyjs::html("text", "")
+      loadMessage(1)
+    },
+    message = function(m) {
+      shinyjs::html(id = "text", html = m$message, add = TRUE)
+    })
+    message <-
+      sprintf("No uploaded PCM file, used default PCM file MA0007.1.transfac")
+    matchNames <- MotifFunc:::matchNames
+    output$inputMessage <- renderText(message)
+    output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
+    output$fTable <- renderTable(tempTable)
+    })
+  })
+  observeEvent(input$inputButton, {
+    if ((!is.null(input$pcmFile)) && (nchar(input$seqText) >= 3)){
+      withCallingHandlers({
+        shinyjs::html("text", "")
+        loadMessage(2)
+      },
+      message = function(m) {
+        shinyjs::html(id = "text", html = m$message, add = TRUE)
+      })
       message <-
         sprintf("Uploaded PCM file is %s.",
                 input$pcmFile$name)
       matchNames <- MotifFunc::classifyPcmMotifs(input$pcmFile$datapath)
-    } else {
-      message <-
-        sprintf("No uploaded PCM file, used sequence %s.", input$seqText$name)
-      matchNames <- MotifFunc::classifySeqMotifs(input$seqText$datapath)
+      output$inputMessage <- renderText(message)
+      output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
+      output$fTable <- renderTable(tempTable)
+      })
     }
-    output$inputMessage <- renderText({message})
-    output$plot <- renderPlot({MotifFunc::getFunctionWC(matchNames)})
-    output$loadMessage <- renderText({sprintf("Wordcloud visualization is complete.")})
-
-  })
-
+    else if ((nchar(input$seqText) >= 3)){
+      withCallingHandlers({
+        shinyjs::html("text", "")
+        loadMessage(3)
+      },
+      message = function(m) {
+        shinyjs::html(id = "text", html = m$message, add = TRUE)
+      })
+      message <-
+        sprintf("No uploaded PCM file, used sequence %s.", input$seqText)
+      matchNames <- MotifFunc::classifySeqMotifs(input$seqText)
+      output$inputMessage <- renderText(message)
+      output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
+      output$fTable <- renderTable(tempTable)
+      })
+    }
+    else if ((is.null(input$pcmFile)) && (nchar(input$seqText) < 3)){
+      withCallingHandlers({
+        shinyjs::html("text", "")
+        loadMessage(4)
+      },
+      message = function(m) {
+        shinyjs::html(id = "text", html = m$message, add = TRUE)
+      })
+    }
+    })
 
 }
 
