@@ -73,6 +73,7 @@ server <- function(input, output) {
   observeEvent(input$inputButton, {
     #If a file is specified; this won't run if there is also a sequence
     #specified so sequence input must be empty to use a file
+
     if ((!is.null(input$pcmFile)) && (nchar(input$seqText) < 3)){
       #Prints messages to user given the specific action
       #Adapted from: Attali, D. (2015). [Full reference in README]
@@ -93,7 +94,7 @@ server <- function(input, output) {
       output$inputMessage <- renderText(message)
       output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
       #Only sets table display if at least one function is found
-      if (!is.integer(tempTable)){
+      if (tempTable != 0){
         output$fTable <- renderTable(tempTable)
       }
       #Empty plot displayed
@@ -122,7 +123,7 @@ server <- function(input, output) {
       output$inputMessage <- renderText(message)
       output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
       #Only sets table display if at least one function is found
-      if (!is.integer(tempTable)){
+      if (tempTable != 0){
         output$fTable <- renderTable(tempTable)
       }
       #Empty plot displayed
