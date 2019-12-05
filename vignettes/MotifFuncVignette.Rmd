@@ -56,14 +56,18 @@ Create an issue on github https://github.com/minhanho/MotifFunc/issues
 
 ## Example Sequence of Functions
 ```
-PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
-matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
-functionFreq <- MotifFunc::(matchNames)
+data(jaspar.scores, package="MotifFunc")
+jaspar.scores
+matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+functionFreq <- MotifFunc::getFunctionWC(matchNames)
 ```
 Or
 
 ```
-matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
+transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
+data(jaspar.scores, package="MotifFunc")
+jaspar.scores
+matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 functionFreq <- MotifFunc::getFunctionWC(matchNames)
 ```
 

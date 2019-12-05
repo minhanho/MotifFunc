@@ -17,7 +17,7 @@ A function that takes S4 outputted by MotIV::motifMatch() and returns a list
 containing match information
 }
 \examples{
-utils::data("matches")
+data(matches, package="MotifFunc")
 MotIVtoTable(matches)
 
 }

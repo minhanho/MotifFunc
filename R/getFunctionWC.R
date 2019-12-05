@@ -13,10 +13,14 @@
 #'
 #'
 #' @examples
+#' data(jaspar.scores, package="MotifFunc")
+#' jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
+#' data(jaspar.scores, package="MotifFunc")
+#' jaspar.scores
 #' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #' functionFreq <- MotifFunc::getFunctionWC(matchNames)
 #'

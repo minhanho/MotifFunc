@@ -59,7 +59,7 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
 #' @return Returns df - A list indicating motif information as outlined in MotDb
 #'
 #' @examples
-#' utils::data("matches")
+#' data(matches, package="MotifFunc")
 #' MotIVtoTable(matches)
 #'
 #' @references

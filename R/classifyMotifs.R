@@ -11,6 +11,8 @@
 #'
 #'
 #' @examples
+#' data(jaspar.scores, package="MotifFunc")
+#' jaspar.scores
 #' matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 #'
 #' @import MotIV
@@ -20,10 +22,6 @@
 #'
 #' @export
 classifySeqMotifs <- function(consensusSeq) {
-  #Loading vector of abbrievated organism names from MotifDb to full names
-  jaspar.scores <- NULL
-  utils::data("jaspar.scores")
-
   #Check that input is only composed of ACTG or produces error
   if  (grepl("[^ACTGactg]", consensusSeq)){
     stop("Invalid sequence")
@@ -67,9 +65,13 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #'
 #' @examples
+#' data(jaspar.scores, package="MotifFunc")
+#' jaspar.scores
 #' transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
 #' matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
 #'
+#' data(jaspar.scores, package="MotifFunc")
+#' jaspar.scores
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 #' matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
 #'
@@ -79,9 +81,6 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @export
 classifyPcmMotifs <- function(transfacFilePath) {
-  #Loading vector of abbrievated organism names from MotifDb to full names
-  jaspar.scores <- NULL
-  utils::data("jaspar.scores")
 
   #Check if the input file is the correct format, i.e. correct file extension
   #Errors if file is not a .transfac or .txt file
