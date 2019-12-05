@@ -60,7 +60,9 @@ server <- function(input, output) {
     message <-
       sprintf("No uploaded PCM file, used default PCM file MA0007.1.transfac")
     output$inputMessage <- renderText(message)
-
+    data(jaspar.scores, package="MotifFunc")
+    jaspar.scores
+    transfacFilePath <- system.file("extdata", "new0007.txt", package = "MotifFunc")
     matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
     output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
     output$fTable <- renderTable(tempTable)
@@ -85,6 +87,8 @@ server <- function(input, output) {
       message <-
         sprintf("Uploaded PCM file is %s.",
                 input$pcmFile$name)
+      data(jaspar.scores, package="MotifFunc")
+      jaspar.scores
       matchNames <- MotifFunc::classifyPcmMotifs(input$pcmFile$datapath)
       output$inputMessage <- renderText(message)
       output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
@@ -112,6 +116,8 @@ server <- function(input, output) {
       })
       message <-
         sprintf("No uploaded PCM file, used sequence %s.", input$seqText)
+      data(jaspar.scores, package="MotifFunc")
+      jaspar.scores
       matchNames <- MotifFunc::classifySeqMotifs(input$seqText)
       output$inputMessage <- renderText(message)
       output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
