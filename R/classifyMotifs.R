@@ -6,8 +6,8 @@
 #' @param consensusSeq A string indicating a desired consensus sequence (i.e.
 #' Contains only "A", "T", "C", "G")
 #'
-#' @return Returns matchNames - A value of class list indicating motif match
-#' names
+#' @return Returns matchNames - A value of class character vector indicating
+#' motif match names
 #'
 #'
 #' @examples
@@ -50,6 +50,7 @@ classifySeqMotifs <- function(consensusSeq) {
 
   #Extracting name of motif matches
   matchNames <- matchesTable["name"]
+  matchNames <- unname(unlist(matchNames))
 
   return(matchNames)
 }
@@ -61,8 +62,8 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @param transfacFilePath A string indicating the path to the TRANSFAC file
 #'
-#' @return Returns matchNames - A value of class list indicating motif match
-#' names
+#' @return Returns matchNames - A value of class character vector indicating
+#' motif match names
 #'
 #'
 #' @examples
@@ -103,6 +104,7 @@ classifyPcmMotifs <- function(transfacFilePath) {
 
   #Extracting name of motif matches
   matchNames <- matchesTable["name"]
+  matchNames <- unname(unlist(matchNames))
 
   return(matchNames)
 }

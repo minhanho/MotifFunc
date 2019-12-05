@@ -61,9 +61,7 @@ server <- function(input, output) {
       sprintf("No uploaded PCM file, used default PCM file MA0007.1.transfac")
     output$inputMessage <- renderText(message)
 
-    #Loaded match names from package for faster computation as they are produced
-    #from the MA0007.1.transfac file
-    matchNames <- MotifFunc:::matchNames
+    matchNames <- MotifFunc::classifyPcmMotifs(transfacFilePath)
     output$plot <- renderPlot({tempTable <- MotifFunc::getFunctionWC(matchNames)
     output$fTable <- renderTable(tempTable)
     })

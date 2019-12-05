@@ -23,7 +23,8 @@ Imports:
     shinyjs,
     tools,
     utils,
-    S4Vectors
+    S4Vectors,
+    testit
 biocViews:
     Annotation,
     Software,

@@ -10,8 +10,8 @@ classifyPcmMotifs(transfacFilePath)
 \item{transfacFilePath}{A string indicating the path to the TRANSFAC file}
 }
 \value{
-Returns matchNames - A value of class list indicating motif match
-names
+Returns matchNames - A value of class character vector indicating
+motif match names
 }
 \description{
 A function that finds matches for given motif PWM to motifs within the

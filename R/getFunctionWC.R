@@ -30,17 +30,31 @@
 #' @import tm
 #' @import RColorBrewer
 #' @import S4Vectors
+#' @import testit
 #'
 #'@export
 getFunctionWC <- function(matchNames) {
+  #If the input is not a list
+  if (typeof("c") != typeof(matchNames)){
+    stop("Incorrect input. Must be of type character.")
+  }
+  #If input is an empty list
+  if (length(matchNames) <= 1) {
+    stop("Incorrect input. Function runs for more than 1 match.")
+  }
+
   #Setting vector to store functions returned by the biomartr query
   functionCollection <- c()
 
   #Loop that runs through each motif match
-  for (x in seq_len(nrow(matchNames))){
+  for (x in seq_len(length(matchNames))){
     #Retrieving information on motif from MotifDb database
-    values <- NULL
-    dbInfo <- noquote (t (as.data.frame (S4Vectors::values(MotifDb::MotifDb [matchNames[x,]]))))
+
+    #If the name stored in matchNames does not correspond to names in MotifDb
+    if (!(matchNames[x] %in% names(MotifDb::MotifDb))){
+      stop("Incorrect motif match name in matchNames.")
+    }
+    dbInfo <- noquote (t (as.data.frame (S4Vectors::values(MotifDb::MotifDb [matchNames[x]]))))
     #Extracting name of organism(s) from motif information
     matchOrganism <- dbInfo[9]
 

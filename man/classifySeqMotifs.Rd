@@ -11,8 +11,8 @@ classifySeqMotifs(consensusSeq)
 Contains only "A", "T", "C", "G")}
 }
 \value{
-Returns matchNames - A value of class list indicating motif match
-names
+Returns matchNames - A value of class character vector indicating
+motif match names
 }
 \description{
 A function that creates a motif PWM based on given DNA consensus sequence
