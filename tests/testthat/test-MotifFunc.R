@@ -3,6 +3,8 @@ library(MotifFunc)
 
 test_that("classifyPcmMotifs motif match output check", {
   PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
+  data(jaspar.scores, package="MotifFunc")
+  jaspar.scores
   matchNames <- MotifFunc::classifyPcmMotifs(PWMfile)
   expect_that(length(matchNames), equals(20))
 
@@ -10,6 +12,8 @@ test_that("classifyPcmMotifs motif match output check", {
 })
 
 test_that("classifySeqMotifs motif match output check", {
+  data(jaspar.scores, package="MotifFunc")
+  jaspar.scores
   matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
   expect_that(length(matchNames), equals(20))
 
@@ -18,6 +22,8 @@ test_that("classifySeqMotifs motif match output check", {
 })
 
 test_that("getFunctionWC output check", {
+  data(jaspar.scores, package="MotifFunc")
+  jaspar.scores
   matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
   functionFreq <- MotifFunc::getFunctionWC(matchNames)
   expect_that(is.null(functionFreq), equals(FALSE))
