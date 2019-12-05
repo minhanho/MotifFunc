@@ -35,6 +35,7 @@
 #' @import RColorBrewer
 #' @import S4Vectors
 #' @import testit
+#' @import utils
 #'
 #'@export
 getFunctionWC <- function(matchNames) {
@@ -50,9 +51,15 @@ getFunctionWC <- function(matchNames) {
   #Setting vector to store functions returned by the biomartr query
   functionCollection <- c()
 
+  #Creating progress bar for user output
+  loadingBar <- utils::txtProgressBar(min = 0, max = length(matchNames), style=3)
+
   #Loop that runs through each motif match
   for (x in seq_len(length(matchNames))){
     #Retrieving information on motif from MotifDb database
+
+    #Adding current place in loop for progress bar
+    utils::setTxtProgressBar(loadingBar, x)
 
     #If the name stored in matchNames does not correspond to names in MotifDb
     if (!(matchNames[x] %in% names(MotifDb::MotifDb))){
@@ -82,8 +89,8 @@ getFunctionWC <- function(matchNames) {
       options(warn=-1)
 
       #biomartr query for GO information
-      GO_tbl <- biomartr::getGO(organism = organism_full, genes = matchGene,
-                                filters = "uniprot_gn_symbol")
+      GO_tbl <- suppressMessages(biomartr::getGO(organism = organism_full, genes = matchGene,
+                                filters = "uniprot_gn_symbol"))
       #Un-supress warnings produced by biomart
       options(warn=0)
       #Extracting GO descriptions and adding to "collection" vector
