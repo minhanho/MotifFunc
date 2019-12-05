@@ -44,31 +44,28 @@ browseVignettes("MotifFunc")
 │    ├── data.R
 │    ├── getFunctionWC.R
 │    ├── helperFunctions.R
-│    ├── runMotifFunc.R
-│    └── sysdata.rda
+│    └── runMotifFunc.R
 ├── README.md
 ├── data
-│    ├── matches.rda
-│    └── organismFullNames.rda
+│    ├── jaspar.scores.rda
+│    └── matches.rda
 ├── inst
 │    ├── CITATION
 │    ├── extdata
 │    │    ├── HO_M_A1.png
 │    │    ├── MA0007.1.transfac
 │    │    ├── WCoutput.png
-│    │     └── new0007.txt
+│    │    └── new0007.txt
 │    └── shiny-scripts
 │        └── app.R
 ├── man
-│    ├── MotIV.toTable.Rd
+│    ├── MotIVtoTable.Rd
 │    ├── classifyPcmMotifs.Rd
 │    ├── classifySeqMotifs.Rd
 │    ├── correctJasparTransfac.Rd
-│    ├── getFullOrganism.Rd
 │    ├── getFunctionWC.Rd
+│    ├── jaspar.scores.Rd
 │    ├── matches.Rd
-│    ├── organismFullNames.Rd
-│    ├── pickOrganism.Rd
 │    └── runMotifFunc.Rd
 ├── tests
 │    ├── testthat

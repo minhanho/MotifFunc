@@ -73,7 +73,7 @@ server <- function(input, output) {
   observeEvent(input$inputButton, {
     #If a file is specified; this won't run if there is also a sequence
     #specified so sequence input must be empty to use a file
-    if ((!is.null(input$pcmFile)) && (nchar(input$seqText) >= 3)){
+    if ((!is.null(input$pcmFile)) && (nchar(input$seqText) < 3)){
       #Prints messages to user given the specific action
       #Adapted from: Attali, D. (2015). [Full reference in README]
       withCallingHandlers({
