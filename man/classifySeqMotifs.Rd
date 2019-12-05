@@ -19,6 +19,7 @@ A function that creates a motif PWM based on given DNA consensus sequence
 and finds matches within the MotifDb database
 }
 \examples{
+jaspar.scores <- MotifFunc::jaspar.scores
 matchNames <- MotifFunc::classifySeqMotifs("AGCGTAGGCGT")
 
 }

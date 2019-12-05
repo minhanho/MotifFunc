@@ -11,6 +11,7 @@
 #' PWMfile <- system.file("extdata", "MA0007.1.transfac", package = "MotifFunc")
 #' correctJasparTransfac(PWMfile, "new0007.txt")
 #'
+#' @export
 correctJasparTransfac <- function(PWMfile, newFilePath) {
   #Reads in specified file
   A <- readLines(con <- file(PWMfile))
@@ -58,16 +59,17 @@ correctJasparTransfac <- function(PWMfile, newFilePath) {
 #' @return Returns df - A list indicating motif information as outlined in MotDb
 #'
 #' @examples
-#' data("matches")
-#' MotIV.toTable(matches)
+#' utils::data("matches")
+#' MotIVtoTable(matches)
 #'
-#'@references
-#'Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA
-#'Binding Sequence Motifs. R package version 1.26.0.
-#'\url{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
+#' @references
+#' Shannon P, Richards M (2019). MotifDb: An Annotated Collection of Protein-DNA
+#' Binding Sequence Motifs. R package version 1.26.0.
+#' \url{https://rdrr.io/bioc/MotifDb/src/inst/doc/MotifDb.R}
+#'
+#' @export
 
-
-MotIV.toTable = function (match) {
+MotIVtoTable = function (match) {
   if (length (match@bestMatch) == 0)
     return (NA)
 
@@ -85,53 +87,6 @@ MotIV.toTable = function (match) {
                                 match=match, strand=strand, stringsAsFactors=FALSE))
   } # for alignment
   return (df)
-}
-
-#' Gets full species name of organism
-#'
-#' A function that takes organism names in MotifDb format, retrieves
-#' corresponding full species name
-#'
-#' @param MotifDbOrganism A string indicating organism/species names (based on
-#' MotifDb records)
-#'
-#' @return Returns fullName - A string indicating full species name
-#'
-#'
-#' @examples
-#' getFullOrganism("Hsapiens")
-#'
-#'
-
-getFullOrganism <- function(MotifDbOrganism) {
-  #Loading vector of abbrievated organism names from MotifDb to full names
-  data("organismFullNames")
-
-  #Looping through all organisms in organismFullNames
-  for (x in seq_len(length(organismFullNames))){
-    #Split string element by =
-    matcher <- strsplit(organismFullNames[x], "=")
-    matcherTerms <- unlist(matcher)
-
-    #If the abbreviated name in the element of organismFullNames matches the one
-    #given by MotifDb
-    if (matcherTerms[1] == MotifDbOrganism){
-
-      #If it is a multi-organim motif
-      if (length(matcherTerms) > 2){
-        #Choose random organism from those specified to use for query
-        set.seed(1235217)
-        index <- sample(2:length(matcherTerms), 1)
-        set.seed(NULL)
-        fullName <- matcherTerms[index]
-      }
-      else{
-        #Store full name
-        fullName <- matcherTerms[2]
-      }
-    }
-  }
-  return(fullName)
 }
 
 #[END]

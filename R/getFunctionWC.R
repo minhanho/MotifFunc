@@ -29,29 +29,32 @@
 #' @import wordcloud
 #' @import tm
 #' @import RColorBrewer
+#' @import S4Vectors
 #'
 #'@export
 getFunctionWC <- function(matchNames) {
-  library(MotifDb)
-
   #Setting vector to store functions returned by the biomartr query
   functionCollection <- c()
 
   #Loop that runs through each motif match
   for (x in seq_len(nrow(matchNames))){
     #Retrieving information on motif from MotifDb database
-    dbInfo <- noquote (t (as.data.frame (values(MotifDb::MotifDb [matchNames[x,]]))))
+    values <- NULL
+    dbInfo <- noquote (t (as.data.frame (S4Vectors::values(MotifDb::MotifDb [matchNames[x,]]))))
     #Extracting name of organism(s) from motif information
     matchOrganism <- dbInfo[9]
 
     #Organisms with the best genome annotation coverage generally
     #MotifDb contains some organisms that aren't well covered in ENSEMBL
-    availableOrganisms <- c("Hsapiens", "Mmusculus", "Dmelanogaster", "Scerevisiae")
+    availableOrganisms <- list("Hsapiens"="Homo sapiens",
+                               "Mmusculus"="Mus musculus",
+                               "Dmelanogaster"="Drosophila melanogaster",
+                               "Scerevisiae"="Saccharomyces cerevisiae")
 
     #Currently only working for Homo sapiens, will add on this in the next submission
-    if (!is.na(matchOrganism) && (matchOrganism %in% availableOrganisms)){
+    if (!is.na(matchOrganism) && (matchOrganism %in% names(availableOrganisms))){
       #Retrieving full organism name for use with biomartr
-      organism_full <- getFullOrganism(matchOrganism)
+      organism_full <- unname(unlist(availableOrganisms[matchOrganism]))
       #Extracting gene of interest from motif information
       matchGene <- dbInfo[4]
       #Converting lower case gene name to upper case for use with biomartr
@@ -71,7 +74,7 @@ getFunctionWC <- function(matchNames) {
     }
   }
   #Only runs if functions were found, given the organism constraints
-  if (functionCollection >= 1){
+  if (length(functionCollection) >= 1){
     #Creating a table from vector of GO function descriptions
     #This allows wordcloud() to accept and output phrases rather than words
     #Adapted from the referenced StackOverflow link

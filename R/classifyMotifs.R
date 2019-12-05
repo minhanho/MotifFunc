@@ -20,8 +20,9 @@
 #'
 #' @export
 classifySeqMotifs <- function(consensusSeq) {
-  #Load data for motifMatch()
-  MotifFunc::jaspar.scores
+  #Loading vector of abbrievated organism names from MotifDb to full names
+  jaspar.scores <- NULL
+  utils::data("jaspar.scores")
 
   #Check that input is only composed of ACTG or produces error
   if  (grepl("[^ACTGactg]", consensusSeq)){
@@ -45,7 +46,7 @@ classifySeqMotifs <- function(consensusSeq) {
   matches <- MotIV::motifMatch(queryList, as.list(MotifDb::MotifDb), top=20)
 
   #Converting MotIV S4 object to table for simplified query
-  matchesTable <- MotIV.toTable(matches)
+  matchesTable <- MotIVtoTable(matches)
 
   #Extracting name of motif matches
   matchNames <- matchesTable["name"]
@@ -77,14 +78,15 @@ classifySeqMotifs <- function(consensusSeq) {
 #'
 #' @export
 classifyPcmMotifs <- function(transfacFilePath) {
+  #Loading vector of abbrievated organism names from MotifDb to full names
+  jaspar.scores <- NULL
+  utils::data("jaspar.scores")
+
   #Check if the input file is the correct format, i.e. correct file extension
   #Errors if file is not a .transfac or .txt file
   if (!(tools::file_ext(transfacFilePath) == "transfac") && !(tools::file_ext(transfacFilePath) == "txt")){
     stop("Incorrect input file type. Must be .transfac or .txt")
   }
-
-  #Load data for motifMatch()
-  MotifFunc::jaspar.scores
 
   #Creates a new file with the correct PCM format for use with readPWMfile
   correctJasparTransfac(transfacFilePath, "newFile.txt")
@@ -97,7 +99,7 @@ classifyPcmMotifs <- function(transfacFilePath) {
   matches <- MotIV::motifMatch(queryMotif, as.list(MotifDb::MotifDb), top=20)
 
   #Converting MotIV S4 object to table for simplified query
-  matchesTable <- MotIV.toTable(matches)
+  matchesTable <- MotIVtoTable(matches)
 
   #Extracting name of motif matches
   matchNames <- matchesTable["name"]
